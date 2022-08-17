@@ -1,0 +1,15 @@
+server:
+    port: 48080
+
+spring:
+    application:
+        name: edu-gateway-server
+
+    profiles:
+        active: local
+
+logging:
+    file:
+        name: ${user.home}/logs/${spring.application.name}.log
+
+
