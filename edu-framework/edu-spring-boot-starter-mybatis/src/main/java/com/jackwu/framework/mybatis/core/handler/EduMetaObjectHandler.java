@@ -22,11 +22,11 @@ public class EduMetaObjectHandler implements MetaObjectHandler {
 
             LocalDateTime current = LocalDateTime.now();
             // 创建时间为空，则以当前时间为插入时间
-            if (ObjectUtil.isNotNull(baseDO.getCreateTime())) {
+            if (ObjectUtil.isNull(baseDO.getCreateTime())) {
                 baseDO.setCreateTime(current);
             }
             // 更新时间为空，则以当前时间为更新时间
-            if (ObjectUtil.isNotNull(baseDO.getUpdateTime())) {
+            if (ObjectUtil.isNull(baseDO.getUpdateTime())) {
                 baseDO.setUpdateTime(current);
             }
 
@@ -42,10 +42,8 @@ public class EduMetaObjectHandler implements MetaObjectHandler {
 
             LocalDateTime current = LocalDateTime.now();
 
-            // 更新时间为空，则以当前时间为更新时间
-            if (ObjectUtil.isNotNull(baseDO.getUpdateTime())) {
-                baseDO.setUpdateTime(current);
-            }
+            // 重新设置更新时间
+            baseDO.setUpdateTime(current);
 
             // todo 记录更新者
         }

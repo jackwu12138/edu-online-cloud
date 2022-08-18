@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Slf4j
 @Configuration
-@MapperScan(annotationClass = Mapper.class)
+@MapperScan(annotationClass = Mapper.class, basePackages = "com.jackwu.module.*.dal.mybatis")
 public class EduMybatisPlusAutoConfiguration {
 
     /**
