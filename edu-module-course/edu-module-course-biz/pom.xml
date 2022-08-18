@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>com.jackwu</groupId>
-            <artifactId>edu-common</artifactId>
+            <artifactId>edu-module-course-api</artifactId>
         </dependency>
 
         <dependency>

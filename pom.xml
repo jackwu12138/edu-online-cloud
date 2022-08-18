@@ -223,6 +223,16 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
+            <!-- ==================== 业务模块 ==================== -->
+
+            <dependency>
+                <groupId>com.jackwu</groupId>
+                <artifactId>edu-module-course-api</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
