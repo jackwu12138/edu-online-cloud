@@ -10,6 +10,7 @@
     <modules>
         <module>edu-framework</module>
         <module>edu-gateway</module>
+        <module>edu-module-course</module>
     </modules>
 
     <name>${project.artifactId}</name>
