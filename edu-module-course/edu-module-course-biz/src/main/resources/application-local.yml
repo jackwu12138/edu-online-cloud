@@ -66,4 +66,4 @@ spring:
 
 logging:
     level:
-        com.jackwu.module.course: debug
+        com.jackwu: debug

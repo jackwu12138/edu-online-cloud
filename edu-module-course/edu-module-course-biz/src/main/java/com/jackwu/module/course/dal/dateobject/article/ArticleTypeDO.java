@@ -8,14 +8,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 文章表的实体类
+ * 文章分类表的实体类
  *
  * @author jackwu
  */
 @Data
-@TableName(value = "course_article")
+@TableName("course_article_type")
 @EqualsAndHashCode(callSuper = true)
-public class ArticleDO extends BaseDO {
+public class ArticleTypeDO extends BaseDO {
 
     /**
      * 编号
@@ -24,47 +24,17 @@ public class ArticleDO extends BaseDO {
     private Long id;
 
     /**
-     * 标题
+     * 分类名
      */
-    private String title;
+    private String name;
 
     /**
-     * 封面
+     * 显示顺序
      */
-    private String cover;
-
-    /**
-     * 分类
-     */
-    private Long type;
-
-    /**
-     * 价格
-     */
-    private Integer price;
-
-    /**
-     * 销量
-     */
-    private Integer sales;
-
-    /**
-     * 点赞数量
-     */
-    private Integer likes;
-
-    /**
-     * 阅读次数
-     */
-    private Integer readTime;
+    private Integer sort;
 
     /**
      * 是否启用
      */
     private Boolean status;
-
-    /**
-     * 文章内容
-     */
-    private String content;
 }
