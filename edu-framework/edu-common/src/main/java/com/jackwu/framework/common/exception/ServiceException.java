@@ -1,9 +1,6 @@
 package com.jackwu.framework.common.exception;
 
 import com.jackwu.framework.common.exception.constants.GlobalErrorCodeConstants;
-import com.jackwu.framework.common.exception.constants.ServerErrorCodeConstants;
-import com.jackwu.framework.common.exception.constants.ThirdPartyErrorCodeConstants;
-import com.jackwu.framework.common.exception.constants.UserErrorCodeConstants;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,9 +19,6 @@ public class ServiceException extends RuntimeException{
      * 所抛出的错误的错误代码
      *
      * @see GlobalErrorCodeConstants
-     * @see UserErrorCodeConstants
-     * @see ServerErrorCodeConstants
-     * @see ThirdPartyErrorCodeConstants
      */
     private String code;
 
@@ -32,9 +26,6 @@ public class ServiceException extends RuntimeException{
      * 所抛出的错误的错误信息
      *
      * @see GlobalErrorCodeConstants
-     * @see UserErrorCodeConstants
-     * @see ServerErrorCodeConstants
-     * @see ThirdPartyErrorCodeConstants
      */
     private String msg;
 
