@@ -57,6 +57,9 @@
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <lombok.mapstruct.version>0.2.0</lombok.mapstruct.version>
         <hutool.version>5.6.1</hutool.version>
+
+        <!-- 第三方云服务 -->
+        <minio.version>8.2.2</minio.version>
     </properties>
 
     <dependencyManagement>
@@ -222,6 +225,14 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- ==================== 第三方云服务 ==================== -->
+
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
             </dependency>
 
             <!-- ==================== 业务模块 ==================== -->
