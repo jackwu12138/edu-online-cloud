@@ -19,6 +19,7 @@
     <modules>
         <module>edu-common</module>
         <module>edu-spring-boot-starter-mybatis</module>
+        <module>edu-spring-boot-starter-file</module>
     </modules>
 
     <packaging>pom</packaging>
