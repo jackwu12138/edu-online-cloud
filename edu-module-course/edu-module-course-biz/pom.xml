@@ -51,5 +51,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
+
+        <!-- 第三方云服务 -->
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-file</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

@@ -1,4 +1,6 @@
 spring:
+    main:
+        lazy-initialization: true
     # Servlet 配置
     servlet:
         # 文件上传相关配置项
@@ -16,7 +18,8 @@ spring:
             write-durations-as-timestamps: true # 设置 Duration 的格式，使用时间戳
             fail-on-empty-beans: false # 允许序列化无属性的 Bean
 
-# MyBatis Plus 的配置项
+--- #################### mybatis-plus相关配置 ####################
+
 mybatis-plus:
     configuration:
         map-underscore-to-camel-case: true
@@ -29,8 +32,12 @@ mybatis-plus:
         banner: false
     type-aliases-package: com.jackwu.module.course.dal.dataobject
 
+--- #################### 文件相关配置 ####################
 
-
-
-
-debug: false
+edu:
+    file:
+        endpoint: http://47.107.87.122:9000
+        domain: http://files.lyblue.xyz
+        bucket: file
+        accessKey: root
+        accessSecret: lfzsgz123

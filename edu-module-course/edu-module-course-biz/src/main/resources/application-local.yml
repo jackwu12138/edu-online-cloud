@@ -72,3 +72,5 @@ spring:
 logging:
     level:
         com.jackwu: debug
+
+

@@ -1,6 +1,7 @@
 package com.jackwu.framework.file.core;
 
 import cn.hutool.core.io.IoUtil;
+import cn.hutool.core.util.StrUtil;
 import io.minio.*;
 
 import java.io.ByteArrayInputStream;
@@ -35,7 +36,7 @@ public class MinioFileClient implements FileClient {
                 .build();
         client.putObject(objectArgs);
         // 拼接返回路径
-        return properties.getDomain() + "/" + path;
+        return StrUtil.format("{}/{}/{}", properties.getDomain(), properties.getBucket(), path);
     }
 
     @Override
