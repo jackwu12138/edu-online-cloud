@@ -1,5 +1,6 @@
 package com.jackwu.framework.common.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jackwu.framework.common.exception.ErrorCode;
 import lombok.Data;
 
@@ -63,6 +64,7 @@ public class CommonResult<T> implements Serializable {
      *
      * @return 成功-true; 失败-false;
      */
+    @JsonIgnore
     public boolean isSuccess() {
         return this.code.equals(SUCCESS.getCode());
     }
