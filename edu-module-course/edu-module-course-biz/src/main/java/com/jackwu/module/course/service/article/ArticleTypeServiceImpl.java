@@ -32,6 +32,8 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
     public Long createArticleType(ArticleTypeCreateRequestVO requestVO) {
         validateNameDuplicate(requestVO.getName(), null);
         ArticleTypeDO entity = ArticleTypeConvert.INSTANCE.convert(requestVO);
+        // 默认启用文章类型
+        entity.setStatus(true);
         baseMapper.insert(entity);
         return entity.getId();
     }
