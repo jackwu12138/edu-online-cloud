@@ -6,7 +6,6 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HTMLFilter;
-import cn.hutool.http.HtmlUtil;
 import com.jackwu.framework.common.util.servlet.ServletUtil;
 
 import javax.servlet.ReadListener;
@@ -44,7 +43,7 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
         if (StrUtil.isEmpty(content)) {
             return content;
         }
-        return HtmlUtil.escape(content);
+        return HTML_FILTER.get().filter(content);
     }
 
     // ==================== IO 流相关 ==================== //
