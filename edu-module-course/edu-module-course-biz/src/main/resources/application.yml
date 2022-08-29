@@ -1,6 +1,7 @@
 spring:
     main:
-        lazy-initialization: true
+        # 设置为 true 会导致 swagger 文档报错
+        lazy-initialization: false
     # Servlet 配置
     servlet:
         # 文件上传相关配置项
