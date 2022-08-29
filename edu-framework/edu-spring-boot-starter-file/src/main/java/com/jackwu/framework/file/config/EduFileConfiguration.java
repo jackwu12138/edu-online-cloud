@@ -21,7 +21,6 @@ public class EduFileConfiguration {
     private final MinioFileClientProperties properties;
 
     @Bean
-
     public FileClient getFileClient() {
         log.debug("Bean 'FileClient' configured for use");
         return new MinioFileClient(properties);

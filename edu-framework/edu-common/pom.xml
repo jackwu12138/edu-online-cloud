@@ -28,6 +28,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- ==================== web 相关 ==================== -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- ==================== 工具类相关 ==================== -->
 
         <dependency>
@@ -60,6 +67,7 @@
             <artifactId>jackson-databind</artifactId>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>

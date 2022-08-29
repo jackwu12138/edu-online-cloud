@@ -26,20 +26,23 @@
             <artifactId>edu-module-course-api</artifactId>
         </dependency>
 
+        <!-- web 相关 -->
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 数据库相关 -->
         <dependency>
             <groupId>com.jackwu</groupId>
             <artifactId>edu-spring-boot-starter-mybatis</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
+
         <!-- nacos 相关 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

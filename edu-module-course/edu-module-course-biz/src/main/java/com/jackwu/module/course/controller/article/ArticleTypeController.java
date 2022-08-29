@@ -25,7 +25,7 @@ public class ArticleTypeController {
     private final ArticleTypeService service;
 
     @PostMapping("/create")
-    public CommonResult<Long> createArticleType(ArticleTypeCreateRequestVO requestVO) {
+    public CommonResult<Long> createArticleType(@RequestBody ArticleTypeCreateRequestVO requestVO) {
         Long id = service.createArticleType(requestVO);
         return success(id);
     }
@@ -37,7 +37,7 @@ public class ArticleTypeController {
     }
 
     @PutMapping("/update")
-    public CommonResult<Boolean> updateArticleType(ArticleTypeUpdateRequestVO requestVO) {
+    public CommonResult<Boolean> updateArticleType(@RequestBody ArticleTypeUpdateRequestVO requestVO) {
         service.updateArticleType(requestVO);
         return success(true);
     }
