@@ -2,6 +2,7 @@ package com.jackwu.module.course.convert.article;
 
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
 import com.jackwu.module.course.dal.dateobject.article.ArticleTypeDO;
 import org.mapstruct.Mapper;
@@ -55,4 +56,12 @@ public interface ArticleTypeConvert {
      * @return 转换后的 ArticleTypeResponseVO 列表
      */
     List<ArticleTypeResponseVO> convertList(List<ArticleTypeDO> articleTypeDos);
+
+    /**
+     * 将 ArticleTypeDO 列表转换为 ArticleTypeSimpleResponseVO 列表
+     *
+     * @param articleTypeDos 要转换的 ArticleTypeDO 列表
+     * @return 转换后的 ArticleTypeSimpleResponseVO 列表
+     */
+    List<ArticleTypeSimpleResponseVO> convertList1(List<ArticleTypeDO> articleTypeDos);
 }

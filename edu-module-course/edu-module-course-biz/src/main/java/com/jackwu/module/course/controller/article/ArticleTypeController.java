@@ -3,6 +3,7 @@ package com.jackwu.module.course.controller.article;
 import com.jackwu.framework.common.pojo.CommonResult;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
 import com.jackwu.module.course.service.article.ArticleTypeService;
 import io.swagger.annotations.Api;
@@ -51,7 +52,7 @@ public class ArticleTypeController {
 
     @ApiOperation("获取文章类型精简列表")
     @GetMapping("/get-simple-list")
-    public CommonResult<List<String>> getSimpleArticleTypeList() {
+    public CommonResult<List<ArticleTypeSimpleResponseVO>> getSimpleArticleTypeList() {
         return success(service.getSimpleArticleTypeList());
     }
 

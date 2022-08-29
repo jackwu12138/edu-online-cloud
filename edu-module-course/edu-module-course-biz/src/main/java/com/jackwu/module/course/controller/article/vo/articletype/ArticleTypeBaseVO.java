@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class ArticleTypeBaseVO {
 
     /**
-     * 姓名
+     * 文章类型名
      */
     @ApiModelProperty(value = "文章类型名", required = true, example = "name")
     private String name;

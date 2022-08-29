@@ -2,6 +2,7 @@ package com.jackwu.module.course.service.article;
 
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public interface ArticleTypeService {
      *
      * @return 精简列表
      */
-    List<String> getSimpleArticleTypeList();
+    List<ArticleTypeSimpleResponseVO> getSimpleArticleTypeList();
 
     /**
      * 获取所有的文章分类信息, 包括未启用的

@@ -3,6 +3,7 @@ package com.jackwu.module.course.service.article;
 import cn.hutool.core.util.ObjectUtil;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
 import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
 import com.jackwu.module.course.convert.article.ArticleTypeConvert;
 import com.jackwu.module.course.dal.dateobject.article.ArticleTypeDO;
@@ -10,8 +11,8 @@ import com.jackwu.module.course.dal.mybatis.article.ArticleTypeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.jackwu.framework.common.util.exception.ServiceExceptionUtil.exception;
 import static com.jackwu.module.course.constants.CourseErrorCodeConstants.COURSE_ERROR_ARTICLE_TYPE_ALREADY_EXISTS;
@@ -54,10 +55,11 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
     }
 
     @Override
-    public List<String> getSimpleArticleTypeList() {
+    public List<ArticleTypeSimpleResponseVO> getSimpleArticleTypeList() {
         List<ArticleTypeDO> entities = baseMapper.selectList(null);
-        // todo 这里的分页查询 name 应该在数据库层面去做
-        return entities.stream().map(ArticleTypeDO::getName).collect(Collectors.toList());
+        entities.sort(Comparator.comparingInt(ArticleTypeDO::getSort));
+
+        return ArticleTypeConvert.INSTANCE.convertList1(entities);
     }
 
     @Override

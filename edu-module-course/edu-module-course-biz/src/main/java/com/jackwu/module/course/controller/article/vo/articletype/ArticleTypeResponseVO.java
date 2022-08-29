@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 public class ArticleTypeResponseVO extends ArticleTypeBaseVO {
 
     /**
-     * 编号
+     * 文章类型编号
      */
-    @ApiModelProperty(value = "文章类型id", required = true, example = "1024")
+    @ApiModelProperty(value = "文章类型编号", required = true, example = "1024")
     private Long id;
 
     /**
