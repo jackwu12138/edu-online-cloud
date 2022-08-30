@@ -3,7 +3,6 @@ package com.jackwu.framework.web.core.handler;
 import cn.hutool.core.util.StrUtil;
 import com.jackwu.framework.common.exception.ServiceException;
 import com.jackwu.framework.common.pojo.CommonResult;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -28,7 +27,6 @@ import static com.jackwu.framework.common.exception.constants.GlobalErrorCodeCon
  */
 @Slf4j
 @RestControllerAdvice
-@RequiredArgsConstructor
 public class GlobalExceptionHandler {
 
     /**

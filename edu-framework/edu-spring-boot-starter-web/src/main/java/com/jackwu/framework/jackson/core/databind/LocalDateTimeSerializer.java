@@ -1,4 +1,4 @@
-package com.jackwu.framework.web.jackson.core.databind;
+package com.jackwu.framework.jackson.core.databind;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
