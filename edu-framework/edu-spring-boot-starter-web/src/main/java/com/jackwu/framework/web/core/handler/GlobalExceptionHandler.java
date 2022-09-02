@@ -157,7 +157,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = ServiceException.class)
     public CommonResult<?> serviceExceptionHandler(ServiceException ex) {
-        log.info("[serviceExceptionHandler]", ex);
+        log.info("[serviceExceptionHandler] {} -- {}", ex.getCode(), ex.getMsg());
         return CommonResult.error(ex.getCode(), ex.getMsg());
     }
 

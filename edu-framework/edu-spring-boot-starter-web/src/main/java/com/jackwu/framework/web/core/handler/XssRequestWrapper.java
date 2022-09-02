@@ -6,7 +6,7 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HTMLFilter;
-import com.jackwu.framework.common.util.servlet.ServletUtil;
+import com.jackwu.framework.web.core.util.servlet.ServletUtil;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;

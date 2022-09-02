@@ -20,8 +20,8 @@ import java.util.List;
  *
  * @author jackwu
  */
-@UtilityClass
 @Slf4j
+@UtilityClass
 public class JsonUtil {
 
     private static ObjectMapper objectMapper = new ObjectMapper();

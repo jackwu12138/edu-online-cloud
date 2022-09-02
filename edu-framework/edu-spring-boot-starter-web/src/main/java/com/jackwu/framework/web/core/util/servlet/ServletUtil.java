@@ -1,4 +1,4 @@
-package com.jackwu.framework.common.util.servlet;
+package com.jackwu.framework.web.core.util.servlet;
 
 import cn.hutool.core.util.StrUtil;
 import org.springframework.http.MediaType;
