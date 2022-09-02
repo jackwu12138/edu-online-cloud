@@ -7,6 +7,8 @@ import com.jackwu.framework.mybatis.core.dataobject.BaseDO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigDecimal;
+
 /**
  * 文章表的实体类
  *
@@ -34,14 +36,14 @@ public class ArticleDO extends BaseDO {
     private String cover;
 
     /**
-     * 分类
+     * 分类 id {@link ArticleTypeDO#getId()}
      */
     private Long type;
 
     /**
      * 价格
      */
-    private Integer price;
+    private BigDecimal price;
 
     /**
      * 销量

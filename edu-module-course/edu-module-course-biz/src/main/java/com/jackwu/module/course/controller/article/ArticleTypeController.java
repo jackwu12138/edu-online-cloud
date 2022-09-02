@@ -21,7 +21,6 @@ import static com.jackwu.framework.common.pojo.CommonResult.success;
  * @author jackwu
  */
 @Api(tags = "课程模块 - 文章类型")
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/course/article-type")

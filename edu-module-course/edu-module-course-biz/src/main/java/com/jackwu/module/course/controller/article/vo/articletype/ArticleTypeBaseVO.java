@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 课程模块 - BaseVO
+ * 课程模块 - 文章类型 - BaseVO
  * <p>
  * 提供通用字段给子 VO 使用
  *

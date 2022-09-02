@@ -13,4 +13,5 @@ public interface CourseErrorCodeConstants {
 
     ErrorCode COURSE_ERROR_ARTICLE_TYPE_NOT_FOUND = new ErrorCode("A1000", "文章类型不存在");
     ErrorCode COURSE_ERROR_ARTICLE_TYPE_ALREADY_EXISTS = new ErrorCode("A1001", "文章类型[{}]已经存在");
+    ErrorCode COURSE_ERROR_ARTICLE_NOT_FOUND = new ErrorCode("A1010", "文章不存在");
 }

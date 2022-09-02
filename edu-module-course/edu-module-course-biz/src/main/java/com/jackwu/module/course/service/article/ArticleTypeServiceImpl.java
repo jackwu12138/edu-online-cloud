@@ -47,7 +47,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
     @Override
     public void updateArticleType(ArticleTypeUpdateRequestVO requestVO) {
         // 验证要修改的 id 是否存在
-        validateNameDuplicate(requestVO.getId());
+        validArticleTypeIdExists(requestVO.getId());
         // 验证修改后是否会发生名字的冲突
         validateNameDuplicate(requestVO.getName(), requestVO.getId());
         ArticleTypeDO entity = ArticleTypeConvert.INSTANCE.convert(requestVO);
@@ -64,9 +64,25 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     @Override
     public List<ArticleTypeResponseVO> getArticleTypeList() {
-        // todo 后续应该转换为分页数据
         List<ArticleTypeDO> articleTypeDos = baseMapper.selectList(null);
         return ArticleTypeConvert.INSTANCE.convertList(articleTypeDos);
+    }
+
+    @Override
+    public String getArticleTypeNameById(Long id) {
+        ArticleTypeDO typeDO = baseMapper.selectById(id);
+        if (ObjectUtil.isNull(typeDO)) {
+            return null;
+        }
+        return typeDO.getName();
+    }
+
+    @Override
+    public void validArticleTypeIdExists(Long id) {
+        ArticleTypeDO entity = baseMapper.selectById(id);
+        if (ObjectUtil.isNull(entity)) {
+            throw exception(COURSE_ERROR_ARTICLE_TYPE_NOT_FOUND);
+        }
     }
 
     /**
@@ -85,18 +101,6 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
         }
         if (ObjectUtil.notEqual(id, entity.getId())) {
             throw exception(COURSE_ERROR_ARTICLE_TYPE_ALREADY_EXISTS, name);
-        }
-    }
-
-    /**
-     * 验证该字典类型 id 是否存在
-     *
-     * @param id 要查询的字典类型 id
-     */
-    public void validateNameDuplicate(Long id) {
-        ArticleTypeDO entity = baseMapper.selectById(id);
-        if (ObjectUtil.isNull(entity)) {
-            throw exception(COURSE_ERROR_ARTICLE_TYPE_NOT_FOUND);
         }
     }
 }

@@ -49,4 +49,19 @@ public interface ArticleTypeService {
      * @return 文章分类信息
      */
     List<ArticleTypeResponseVO> getArticleTypeList();
+
+    /**
+     * 根据 id 查询文章类型名
+     *
+     * @param id 要查询的 id
+     * @return 文章类型名, 未查询到时返回 null
+     */
+    String getArticleTypeNameById(Long id);
+
+    /**
+     * 校验 id 对应的文章类型是否存在
+     *
+     * @param id 要校验的 id
+     */
+    void validArticleTypeIdExists(Long id);
 }

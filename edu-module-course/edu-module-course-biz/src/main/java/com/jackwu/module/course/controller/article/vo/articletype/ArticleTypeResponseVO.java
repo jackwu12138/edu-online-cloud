@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * 课程模块 - 文章类型 - 全部列表 responseVO
+ * 课程模块 - 文章类型 - 列表 responseVO
  *
  * @author jackwu
  */
