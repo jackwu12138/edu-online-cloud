@@ -23,6 +23,14 @@ spring:
     cloud:
         gateway:
             routes:
+                -   id: system-system-api
+                    uri: lb://edu-module-system
+                    predicates:
+                        - Path=/system/**
+                -   id: system-infra-api
+                    uri: lb://edu-module-infra
+                    predicates:
+                        - Path=/infra/**
                 -   id: system-course-api
                     uri: lb://edu-module-course
                     predicates:
