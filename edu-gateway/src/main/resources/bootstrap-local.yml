@@ -16,3 +16,14 @@ spring:
                 server-addr: 127.0.0.1:8848
                 namespace: dev
                 file-extension: yaml
+
+--- # ==================== 配置中心相关配置 ==================== #
+
+spring:
+    cloud:
+        gateway:
+            routes:
+                -   id: system-course-api
+                    uri: lb://edu-module-course
+                    predicates:
+                        - Path=/course/**

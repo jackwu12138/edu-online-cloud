@@ -6,8 +6,8 @@ spring:
         name: edu-module-course
 
     profiles:
-        active: local
+        active: ${profile.name}
 
 logging:
     file:
-        name: ${user.home}/logs/${spring.application.name}.log
+        name: /logs/${spring.application.name}.log

@@ -6,10 +6,10 @@ spring:
         name: edu-gateway-server
 
     profiles:
-        active: local
+        active: ${profile.name}
 
 logging:
     file:
-        name: ${user.home}/logs/${spring.application.name}.log
+        name: /logs/${spring.application.name}.log
 
 

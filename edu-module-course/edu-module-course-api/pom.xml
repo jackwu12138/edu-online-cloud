@@ -17,7 +17,7 @@
     </description>
     <url>https://github.com/jackwu12138/exam-online-cloud</url>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
