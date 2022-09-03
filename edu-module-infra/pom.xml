@@ -3,26 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>edu-module-course</artifactId>
+        <artifactId>edu-online-cloud</artifactId>
         <groupId>com.jackwu</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>edu-module-course-api</artifactId>
+    <artifactId>edu-module-infra</artifactId>
+
     <name>${project.artifactId}</name>
     <description>
-        该模块是系统的课程管理模块的 api模块
-        对外提供接口, 供外界的服务使用
+        基础设施, 负责项目的基础运维
     </description>
+
     <url>https://github.com/jackwu12138/exam-online-cloud</url>
 
-    <packaging>jar</packaging>
+    <modules>
+        <module>edu-module-infra-biz</module>
+    </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.jackwu</groupId>
-            <artifactId>edu-common</artifactId>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
 </project>

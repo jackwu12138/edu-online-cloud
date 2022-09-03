@@ -11,6 +11,8 @@
         <module>edu-framework</module>
         <module>edu-gateway</module>
         <module>edu-module-course</module>
+        <module>edu-module-system</module>
+        <module>edu-module-infra</module>
     </modules>
 
     <name>${project.artifactId}</name>

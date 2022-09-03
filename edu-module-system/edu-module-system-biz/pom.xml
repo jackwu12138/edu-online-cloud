@@ -3,18 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>edu-module-course</artifactId>
+        <artifactId>edu-module-system</artifactId>
         <groupId>com.jackwu</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>edu-module-course-biz</artifactId>
+    <artifactId>edu-module-system-biz</artifactId>
 
     <name>${project.artifactId}</name>
     <description>
-        该模块是系统的课程管理模块
-        例如录播课, 直播课, 电子书等
+        系统模块, 该模块下放置通用业务, 以及系统配置等
     </description>
     <url>https://github.com/jackwu12138/exam-online-cloud</url>
 
@@ -23,10 +22,10 @@
     <dependencies>
         <dependency>
             <groupId>com.jackwu</groupId>
-            <artifactId>edu-module-course-api</artifactId>
+            <artifactId>edu-common</artifactId>
         </dependency>
 
-        <!-- ==================== web相关 ==================== -->
+        <!-- ==================== web 相关 ==================== -->
 
         <dependency>
             <groupId>com.jackwu</groupId>
@@ -51,17 +50,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-
-        <!-- ==================== 第三方云服务 ==================== -->
-
-        <dependency>
-            <groupId>com.jackwu</groupId>
-            <artifactId>edu-spring-boot-starter-file</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>edu-module-course</finalName>
+        <finalName>edu-gateway-system</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -70,7 +62,7 @@
                 <configuration>
                     <!-- 主启动类全类名 -->
                     <mainClass>
-                        com.jackwu.module.course.EduCourseApplication
+                        com.jackwu.infra.EduSystemApplication
                     </mainClass>
                 </configuration>
                 <executions>

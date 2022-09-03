@@ -24,7 +24,8 @@
             <artifactId>edu-common</artifactId>
         </dependency>
 
-        <!-- Web 相关 -->
+        <!-- ==================== web 相关 ==================== -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -42,14 +43,6 @@
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
 
-
-        <!-- spring boot 配置所需依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -60,9 +53,23 @@
             <artifactId>swagger-annotations</artifactId>
         </dependency>
 
+        <!-- ==================== spring 相关 ==================== -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- todo 先放在这里 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
     </dependencies>
 </project>
