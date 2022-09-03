@@ -44,14 +44,3 @@ mybatis-plus:
         banner: false
     type-aliases-package: com.jackwu.module.course.dal.dataobject
 
---- #################### 文件相关配置 ####################
-
-edu:
-    file:
-        endpoint: http://47.107.87.122:9000
-        domain: http://files.lyblue.xyz
-        bucket: file
-        accessKey: root
-        accessSecret: lfzsgz123
-    xss:
-        enable: true

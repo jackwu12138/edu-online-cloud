@@ -68,9 +68,27 @@ spring:
                     username: root
                     password: root
 
+--- #################### 系统相关相关配置 ####################
+
+edu:
+    # 文件
+    file:
+        endpoint: http://47.107.87.122:9000
+        domain: http://files.lyblue.xyz
+        bucket: file
+        accessKey: minioadmin
+        accessSecret: minioadmin
+    # xss
+    xss:
+        enable: true
+
+--- #################### 日志配置 ####################
 
 logging:
     level:
         com.jackwu: debug
+
+
+
 
 
