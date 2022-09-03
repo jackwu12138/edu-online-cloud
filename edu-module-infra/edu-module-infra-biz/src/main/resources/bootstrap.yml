@@ -1,9 +1,9 @@
 server:
-    port: 40200
+    port: 40100
 
 spring:
     application:
-        name: edu-module-course
+        name: edu-module-infra
 
     profiles:
         active: ${profile.name}

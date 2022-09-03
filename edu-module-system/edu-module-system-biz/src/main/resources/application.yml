@@ -1,0 +1,46 @@
+spring:
+    main:
+        # 设置为 true 会导致 swagger 文档报错
+        lazy-initialization: false
+        # 运行循环依赖
+        allow-circular-references: true
+    # Servlet 配置
+    servlet:
+        # 文件上传相关配置项
+        multipart:
+            # 单个文件大小
+            max-file-size: 16MB
+            # 设置总上传的文件大小
+            max-request-size: 32MB
+
+    mvc:
+        pathmatch:
+            # 解决 SpringFox 与 SpringBoot 2.6.x 不兼容的问题，
+            matching-strategy: ANT_PATH_MATCHER
+
+    # Jackson 配置项
+    jackson:
+        serialization:
+            # 设置 Date 的格式，使用时间戳
+            write-dates-as-timestamps: true
+            # 设置不使用 nanoseconds 的格式。例如说 1611460870.401，而是直接 1611460870401
+            write-date-timestamps-as-nanoseconds: false
+            # 设置 Duration 的格式，使用时间戳
+            write-durations-as-timestamps: true
+            # 允许序列化无属性的 Bean
+            fail-on-empty-beans: false
+
+--- #################### mybatis-plus相关配置 ####################
+
+mybatis-plus:
+    configuration:
+        map-underscore-to-camel-case: true
+        log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    global-config:
+        db-config:
+            id-type: auto
+            logic-delete-value: 1
+            logic-not-delete-value: 0
+        banner: false
+    type-aliases-package: com.jackwu.module.system.dal.dataobject
+

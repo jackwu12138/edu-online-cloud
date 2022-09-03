@@ -6,6 +6,7 @@
   \___|\__,_|\__,_|      \__, |\__,_|\__\___| \_/\_/ \__,_|\__, |
                           __/ |                             __/ |
                          |___/                             |___/
-java-version:   ${java.version}
+java-version: ${java.version}
 spring-version: ${spring-boot.version}
+profile: ${profile.name}
 

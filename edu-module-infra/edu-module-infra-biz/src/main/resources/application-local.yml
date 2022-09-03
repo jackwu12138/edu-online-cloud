@@ -1,0 +1,93 @@
+--- #################### 数据库相关配置 ####################
+spring:
+    # 数据源配置项
+    autoconfigure:
+        exclude:
+            # 排除 Druid 的自动配置，使用 dynamic-datasource-spring-boot-starter 配置多数据源
+            - com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+    datasource:
+        # Druid 【监控】相关的全局配置
+        druid:
+            web-stat-filter:
+                enabled: true
+            stat-view-servlet:
+                enabled: true
+                # 设置白名单，不填则允许所有访问
+                allow:
+                url-pattern: /druid/*
+                # 控制台管理用户名和密码
+                login-username:
+                login-password:
+            filter:
+                stat:
+                    enabled: true
+                    # 慢 SQL 记录
+                    log-slow-sql: true
+                    slow-sql-millis: 100
+                    merge-sql: true
+                wall:
+                    config:
+                        multi-statement-allow: true
+            driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+        # 多数据源配置
+        dynamic:
+            # 性能分析插件
+            p6spy: true
+            # Druid 【连接池】相关的全局配置
+            druid:
+                # 初始连接数
+                initial-size: 5
+                # 最小连接池数量
+                min-idle: 10
+                # 最大连接池数量
+                max-active: 20
+                # 配置获取连接等待超时的时间，单位：毫秒
+                max-wait: 600000
+                # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位：毫秒
+                time-between-eviction-runs-millis: 60000
+                # 配置一个连接在池中最小生存的时间，单位：毫秒
+                min-evictable-idle-time-millis: 300000
+                # 配置一个连接在池中最大生存的时间，单位：毫秒
+                max-evictable-idle-time-millis: 900000
+                # 配置检测连接是否有效
+                validation-query: SELECT 1 FROM DUAL
+                test-while-idle: true
+                test-on-borrow: false
+                test-on-return: false
+            primary: master
+            datasource:
+                master:
+                    url: jdbc:mysql://127.0.0.1:3306/edu-infra?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&autoReconnect=true&nullCatalogMeansCurrent=true # MySQL Connector/J 8.X 连接的示例
+                    username: root
+                    password: root
+                # 模拟从库
+                slave:
+                    url: jdbc:mysql://127.0.0.1:3306/edu-infra?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=CTT
+                    username: root
+                    password: root
+
+--- #################### 系统相关相关配置 ####################
+
+edu:
+    # 文件
+    file:
+        endpoint: http://47.107.87.122:9000
+        domain: http://files.lyblue.xyz
+        bucket: file
+        accessKey: minioadmin
+        accessSecret: minioadmin
+    # xss
+    xss:
+        enable: true
+
+--- #################### 日志配置 ####################
+
+logging:
+    level:
+        com.jackwu: debug
+
+
+
+
+
