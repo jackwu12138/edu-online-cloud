@@ -50,13 +50,13 @@ public class ArticleTypeController {
     }
 
     @ApiOperation("获取文章类型精简列表")
-    @GetMapping("/get-simple-list")
+    @GetMapping("/simple-list")
     public CommonResult<List<ArticleTypeSimpleResponseVO>> getSimpleArticleTypeList() {
         return success(service.getSimpleArticleTypeList());
     }
 
     @ApiOperation("获取文章类型信息列表")
-    @GetMapping("/get-list")
+    @GetMapping("/list")
     public CommonResult<List<ArticleTypeResponseVO>> getArticleTypeList() {
         return success(service.getArticleTypeList());
     }

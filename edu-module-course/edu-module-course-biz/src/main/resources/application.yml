@@ -2,6 +2,8 @@ spring:
     main:
         # 设置为 true 会导致 swagger 文档报错
         lazy-initialization: false
+        # 运行循环依赖
+        allow-circular-references: true
     # Servlet 配置
     servlet:
         # 文件上传相关配置项

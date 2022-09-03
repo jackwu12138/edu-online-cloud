@@ -50,4 +50,12 @@ public interface ArticleService {
      * @return 文章信息
      */
     ArticleUpdateResponseVO getArticleInfo(Long id);
+
+    /**
+     * 根据文章类型 id 查询该文章类型下有多少文章
+     *
+     * @param id 文章类型编号
+     * @return 文章数量
+     */
+    Long getArticleCountByTypeId(Long id);
 }

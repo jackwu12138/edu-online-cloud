@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jackwu.module.course.dal.dateobject.article.ArticleTypeDO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * 文章分类表的 mapper 接口
  *
@@ -24,5 +26,19 @@ public interface ArticleTypeMapper extends BaseMapper<ArticleTypeDO> {
                 new LambdaQueryWrapper<ArticleTypeDO>()
                         .eq(ArticleTypeDO::getName, name);
         return this.selectOne(wrapper);
+    }
+
+    /**
+     * 查询文章类型精简列表
+     *
+     * @return 文章类型精简列表
+     */
+    default List<ArticleTypeDO> selectSimpleList() {
+        LambdaQueryWrapper<ArticleTypeDO> wrapper = new LambdaQueryWrapper<ArticleTypeDO>()
+                .select(ArticleTypeDO::getName)
+                .select(ArticleTypeDO::getId)
+                .select(ArticleTypeDO::getSort)
+                .eq(ArticleTypeDO::getStatus, true);
+        return this.selectList(wrapper);
     }
 }

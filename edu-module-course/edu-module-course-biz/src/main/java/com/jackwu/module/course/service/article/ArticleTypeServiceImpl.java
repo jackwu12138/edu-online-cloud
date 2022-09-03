@@ -9,14 +9,15 @@ import com.jackwu.module.course.convert.article.ArticleTypeConvert;
 import com.jackwu.module.course.dal.dateobject.article.ArticleTypeDO;
 import com.jackwu.module.course.dal.mybatis.article.ArticleTypeMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Comparator;
 import java.util.List;
 
 import static com.jackwu.framework.common.util.exception.ServiceExceptionUtil.exception;
-import static com.jackwu.module.course.constants.CourseErrorCodeConstants.COURSE_ERROR_ARTICLE_TYPE_ALREADY_EXISTS;
-import static com.jackwu.module.course.constants.CourseErrorCodeConstants.COURSE_ERROR_ARTICLE_TYPE_NOT_FOUND;
+import static com.jackwu.module.course.constants.CourseErrorCodeConstants.*;
 
 /**
  * 文章分类表的 service 实现类
@@ -28,6 +29,10 @@ import static com.jackwu.module.course.constants.CourseErrorCodeConstants.COURSE
 public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     private final ArticleTypeMapper baseMapper;
+
+    @Lazy
+    @Resource
+    private ArticleService articleService;
 
     @Override
     public Long createArticleType(ArticleTypeCreateRequestVO requestVO) {
@@ -41,6 +46,11 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     @Override
     public void deleteArticleTypeById(Long id) {
+        // 校验文章类型是否存在
+        this.validArticleTypeIdExists(id);
+        // 校验该类型是否还存在对应的文章
+        this.checkArticleCount(id);
+
         baseMapper.deleteById(id);
     }
 
@@ -56,7 +66,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     @Override
     public List<ArticleTypeSimpleResponseVO> getSimpleArticleTypeList() {
-        List<ArticleTypeDO> entities = baseMapper.selectList(null);
+        List<ArticleTypeDO> entities = baseMapper.selectSimpleList();
         entities.sort(Comparator.comparingInt(ArticleTypeDO::getSort));
 
         return ArticleTypeConvert.INSTANCE.convertList1(entities);
@@ -101,6 +111,19 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
         }
         if (ObjectUtil.notEqual(id, entity.getId())) {
             throw exception(COURSE_ERROR_ARTICLE_TYPE_ALREADY_EXISTS, name);
+        }
+    }
+
+    /**
+     * 验证是否该类型下还有对应的文章
+     *
+     * @param id 文章类型编号
+     */
+    private void checkArticleCount(Long id) {
+        Long articleCountByTypeId = articleService.getArticleCountByTypeId(id);
+        // 如果对应的文章数不为 0
+        if (!articleCountByTypeId.equals(0L)) {
+            throw exception(COURSE_ERROR_ARTICLE_TYPE_HAS_CHILDREN);
         }
     }
 }

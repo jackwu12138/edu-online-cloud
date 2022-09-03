@@ -85,6 +85,11 @@ public class ArticleServiceImpl implements ArticleService {
         return ArticleConvert.INSTANCE.convert(aDo);
     }
 
+    @Override
+    public Long getArticleCountByTypeId(Long id) {
+        return baseMapper.selectArticleCountByTypeId(id);
+    }
+
     /**
      * 验证该编号对应的文章信息是否存在
      *

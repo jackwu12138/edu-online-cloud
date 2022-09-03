@@ -14,12 +14,14 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ArticleMapper extends BaseMapper<ArticleDO> {
 
     /**
-     * 根据 id 在数据库中进行查询
+     * 查询对应的文章类型编号下有多少篇文章
      *
-     * @param id 文章编号
-     * @return 文章内容
+     * @param id 文章类型编号
+     * @return 文章数量
      */
-    default String selectContentById(Long id) {
-        return this.selectOne(new LambdaQueryWrapper<ArticleDO>().select(ArticleDO::getContent).eq(ArticleDO::getId, id)).getContent();
+    default Long selectArticleCountByTypeId(Long id) {
+        LambdaQueryWrapper<ArticleDO> wrapper = new LambdaQueryWrapper<ArticleDO>().eq(ArticleDO::getType, id);
+
+        return this.selectCount(wrapper);
     }
 }
