@@ -35,9 +35,7 @@ public interface ArticleTypeMapper extends BaseMapper<ArticleTypeDO> {
      */
     default List<ArticleTypeDO> selectSimpleList() {
         LambdaQueryWrapper<ArticleTypeDO> wrapper = new LambdaQueryWrapper<ArticleTypeDO>()
-                .select(ArticleTypeDO::getName)
-                .select(ArticleTypeDO::getId)
-                .select(ArticleTypeDO::getSort)
+                .select(ArticleTypeDO::getName, ArticleTypeDO::getId, ArticleTypeDO::getSort)
                 .eq(ArticleTypeDO::getStatus, true);
         return this.selectList(wrapper);
     }
