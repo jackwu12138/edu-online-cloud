@@ -1,0 +1,18 @@
+--- # ==================== 注册中心相关配置 ==================== #
+
+spring:
+    cloud:
+        nacos:
+            server-addr: 127.0.0.1:8848
+            discovery:
+                namespace: dev
+
+--- # ==================== 配置中心相关配置 ==================== #
+
+spring:
+    cloud:
+        nacos:
+            config:
+                server-addr: 127.0.0.1:8848
+                namespace: dev
+                file-extension: yaml

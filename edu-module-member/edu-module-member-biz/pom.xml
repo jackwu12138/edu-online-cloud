@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>edu-online-cloud</artifactId>
+        <groupId>com.jackwu</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>edu-module-member-biz</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>
+        用户管理, 该模块下放置用户管理
+    </description>
+    <url>https://github.com/jackwu12138/exam-online-cloud</url>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-module-member-api</artifactId>
+        </dependency>
+
+        <!-- ==================== web 相关 ==================== -->
+
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- ==================== 数据库相关 ==================== -->
+
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+
+        <!-- ==================== nacos相关 ==================== -->
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>edu-gateway-member</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.2</version>
+                <configuration>
+                    <!-- 主启动类全类名 -->
+                    <mainClass>
+                        com.jackwu.member.EduMemberApplication
+                    </mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!--可以把依赖的包都打包到生成的Jar包中-->
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

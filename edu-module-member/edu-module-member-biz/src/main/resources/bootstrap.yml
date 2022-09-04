@@ -1,0 +1,13 @@
+server:
+    port: 40300
+
+spring:
+    application:
+        name: edu-module-member
+
+    profiles:
+        active: ${profile.name}
+
+logging:
+    file:
+        name: /logs/${spring.application.name}.log
