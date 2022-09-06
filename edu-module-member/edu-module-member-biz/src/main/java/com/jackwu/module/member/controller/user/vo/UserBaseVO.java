@@ -1,5 +1,7 @@
 package com.jackwu.module.member.controller.user.vo;
 
+import com.jackwu.framework.jackson.core.annotation.Desensitization;
+import com.jackwu.framework.jackson.core.enums.DesensitizationType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,12 +35,14 @@ public class UserBaseVO {
      * 用户邮箱
      */
     @ApiModelProperty(value = "用户邮箱", example = "jackwu@qq.com")
+    @Desensitization(DesensitizationType.EMAIL)
     private String email;
 
     /**
      * 手机号码
      */
     @ApiModelProperty(value = "手机号码", example = "18888888888")
+    @Desensitization(DesensitizationType.MOBILE_PHONE)
     private String mobile;
 
     /**
