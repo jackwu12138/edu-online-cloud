@@ -1,6 +1,8 @@
 package com.jackwu.framework.mybatis.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.jackwu.framework.mybatis.core.handler.EduMetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
@@ -25,5 +27,15 @@ public class EduMybatisPlusAutoConfiguration {
     public MetaObjectHandler defaultMetaObjectHandler() {
         log.debug("Bean 'EduMetaObjectHandler' configured for use");
         return new EduMetaObjectHandler();
+    }
+
+    /**
+     * mybatis-plus 的分页插件配置
+     */
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        return mybatisPlusInterceptor;
     }
 }
