@@ -1,4 +1,4 @@
-package com.jackwu.module.course.service.file;
+package com.jackwu.module.infra.service.file;
 
 import cn.hutool.core.lang.UUID;
 import com.jackwu.framework.file.core.FileClient;

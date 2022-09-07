@@ -1,8 +1,8 @@
-package com.jackwu.module.course.controller.file;
+package com.jackwu.module.infra.controller.file;
 
 import cn.hutool.core.io.IoUtil;
 import com.jackwu.framework.common.pojo.CommonResult;
-import com.jackwu.module.course.service.file.FileService;
+import com.jackwu.module.infra.service.file.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,7 @@ import static com.jackwu.framework.common.pojo.CommonResult.success;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/file")
+@RequestMapping("/infra/file")
 public class FileController {
 
     private final FileService fileService;

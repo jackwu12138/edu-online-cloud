@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author jackwu
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.jackwu.*")
 public class EduInfraApplication {
 
     public static void main(String[] args) {

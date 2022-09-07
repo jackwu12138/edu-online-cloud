@@ -70,15 +70,7 @@ spring:
 
 --- #################### 系统相关相关配置 ####################
 
-edu:
-    # 文件
-    file:
-        endpoint: http://47.107.87.122:9000
-        domain: http://files.lyblue.xyz
-        bucket: file
-        accessKey: minioadmin
-        accessSecret: minioadmin
-    # xss
+edu:    # xss
     xss:
         enable: true
 

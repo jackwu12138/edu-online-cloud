@@ -1,4 +1,4 @@
-package com.jackwu.module.course.service.file;
+package com.jackwu.module.infra.service.file;
 
 /**
  * @author jackwu

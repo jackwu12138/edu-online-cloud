@@ -40,6 +40,13 @@
             <artifactId>edu-spring-boot-starter-mybatis</artifactId>
         </dependency>
 
+        <!-- ==================== 第三方云服务 ==================== -->
+
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-file</artifactId>
+        </dependency>
+
         <!-- ==================== nacos相关 ==================== -->
 
         <dependency>
