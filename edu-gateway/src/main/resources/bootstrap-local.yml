@@ -35,3 +35,7 @@ spring:
                     uri: lb://edu-module-course
                     predicates:
                         - Path=/course/**
+                -   id: system-member-api
+                    uri: lb://edu-module-member
+                    predicates:
+                        - Path=/member/**
