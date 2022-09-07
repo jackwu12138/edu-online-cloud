@@ -86,8 +86,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Long getArticleCountByTypeId(Long id) {
-        return baseMapper.selectArticleCountByTypeId(id);
+    public Long getArticleCountByTypeId(Long typeId) {
+        return baseMapper.selectCount(ArticleDO::getType, typeId);
     }
 
     /**

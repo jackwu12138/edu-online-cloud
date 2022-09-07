@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
         if (ObjectUtil.isNull(username)) {
             return;
         }
-        UserDO user = this.baseMapper.selectOneByUsername(username);
+        UserDO user = this.baseMapper.selectOne(UserDO::getUsername, username);
         // 没有查到则之间返回
         if (ObjectUtil.isNull(user)) {
             return;
@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService {
         if (ObjectUtil.isNull(mobile)) {
             return;
         }
-        UserDO user = this.baseMapper.selectOneByMobile(mobile);
+        UserDO user = this.baseMapper.selectOne(UserDO::getMobile, mobile);
         // 没有查到则之间返回
         if (ObjectUtil.isNull(user)) {
             return;
@@ -141,7 +141,7 @@ public class UserServiceImpl implements UserService {
         if (ObjectUtil.isNull(email)) {
             return;
         }
-        UserDO user = this.baseMapper.selectOneByEmail(email);
+        UserDO user = this.baseMapper.selectOne(UserDO::getEmail, email);
         // 没有查到则之间返回
         if (ObjectUtil.isNull(user)) {
             return;

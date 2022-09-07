@@ -66,7 +66,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     @Override
     public List<ArticleTypeSimpleResponseVO> getSimpleArticleTypeList() {
-        List<ArticleTypeDO> entities = baseMapper.selectSimpleList();
+        List<ArticleTypeDO> entities = baseMapper.selectList(ArticleTypeDO::getStatus, true);
         entities.sort(Comparator.comparingInt(ArticleTypeDO::getSort));
 
         return ArticleTypeConvert.INSTANCE.convertList1(entities);
@@ -102,7 +102,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
      * @param id   要验证的 id
      */
     public void validateNameDuplicate(String name, Long id) {
-        ArticleTypeDO entity = baseMapper.getArticleTypeByName(name);
+        ArticleTypeDO entity = this.baseMapper.selectOne(ArticleTypeDO::getName, name);
         if (ObjectUtil.isNull(entity)) {
             return;
         }
