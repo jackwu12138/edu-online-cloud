@@ -45,3 +45,4 @@ application-dev.yml
 logs
 work
 
+/spy.log

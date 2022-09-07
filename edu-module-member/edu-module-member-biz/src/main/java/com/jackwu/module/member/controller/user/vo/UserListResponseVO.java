@@ -1,5 +1,6 @@
 package com.jackwu.module.member.controller.user.vo;
 
+import com.jackwu.framework.jackson.core.annotation.IpAddress;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -37,7 +38,8 @@ public class UserListResponseVO extends UserBaseVO {
      * 最后登录IP
      */
     @ApiModelProperty(value = "最后登录IP", example = "127.0.0.1")
-    private String loginIp;
+    @IpAddress
+    private Long loginIp;
 
     /**
      * 最后登录时间

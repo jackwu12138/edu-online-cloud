@@ -56,7 +56,7 @@ public class ArticleController {
 
     @ApiOperation("根据id获取文章内容")
     @GetMapping("/info/{id}")
-    public CommonResult<ArticleUpdateResponseVO> getArticleInfo(@PathVariable Long id) {
+    public CommonResult<ArticleUpdateResponseVO> getArticleInfo(@PathVariable("id") Long id) {
         return CommonResult.success(service.getArticleInfo(id));
     }
 }

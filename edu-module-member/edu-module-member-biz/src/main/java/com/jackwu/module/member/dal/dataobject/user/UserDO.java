@@ -68,7 +68,7 @@ public class UserDO extends BaseDO {
     /**
      * 最后登录IP
      */
-    private String loginIp;
+    private Long loginIp;
 
     /**
      * 最后登录时间
