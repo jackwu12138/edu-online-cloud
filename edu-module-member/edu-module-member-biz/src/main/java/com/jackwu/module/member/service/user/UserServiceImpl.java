@@ -29,11 +29,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserMapper baseMapper;
 
+    private final UserConvert mapperConvert;
+
     @Override
     public Long createUser(UserCreateRequestVO vo) {
         this.checkUpdateOrCreate(null, vo.getUsername(), vo.getMobile(), vo.getEmail());
 
-        UserDO userDO = UserConvert.INSTANCE.convert(vo);
+        UserDO userDO = mapperConvert.convert(vo);
         // 设置默认属性
         this.setDefaultProperty(userDO);
         // 执行插入操作
@@ -53,7 +55,7 @@ public class UserServiceImpl implements UserService {
     public PageResult<UserListResponseVO> getUserPageList(PageParam param) {
         PageResult<UserDO> users = this.baseMapper.selectPage(param, null);
 
-        return UserConvert.INSTANCE.convertPage(users);
+        return mapperConvert.convertPage(users);
     }
 
     /**

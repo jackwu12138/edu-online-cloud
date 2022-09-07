@@ -31,6 +31,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleMapper baseMapper;
 
+    private final ArticleConvert mapperConvert;
+
     private final ArticleTypeService articleTypeService;
 
     @Override
@@ -38,7 +40,7 @@ public class ArticleServiceImpl implements ArticleService {
         // 校验文章类型是否存在
         articleTypeService.validArticleTypeIdExists(vo.getType());
         // 类型转换
-        ArticleDO ado = ArticleConvert.INSTANCE.convert(vo);
+        ArticleDO ado = mapperConvert.convert(vo);
         // 为要插入的数据设置默认值
         this.setDefaultProperties(ado);
         // 执行插入操作
@@ -62,7 +64,7 @@ public class ArticleServiceImpl implements ArticleService {
         articleTypeService.validArticleTypeIdExists(vo.getType());
 
         // 执行更新操作
-        ArticleDO entity = ArticleConvert.INSTANCE.convert(vo);
+        ArticleDO entity = mapperConvert.convert(vo);
         baseMapper.updateById(entity);
     }
 
@@ -70,7 +72,7 @@ public class ArticleServiceImpl implements ArticleService {
     public PageResult<ArticleListResponseVO> getArticlePageList(PageParam param) {
         PageResult<ArticleDO> articleDos = baseMapper.selectPage(param,null);
         // 查出的所有文章信息转换为 vo
-        PageResult<ArticleListResponseVO> vos = ArticleConvert.INSTANCE.convertPage(articleDos);
+        PageResult<ArticleListResponseVO> vos = mapperConvert.convertPage(articleDos);
         // 根据 typeId 去查询相对应的文章类型名
         // todo 循环查库, 后面记得做缓存
         vos.getData().forEach(vo -> vo.setTypeName(articleTypeService.getArticleTypeNameById(vo.getType())));
@@ -84,7 +86,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (ObjectUtil.isNull(aDo)) {
             throw exception(COURSE_ERROR_ARTICLE_NOT_FOUND);
         }
-        return ArticleConvert.INSTANCE.convert(aDo);
+        return mapperConvert.convert(aDo);
     }
 
     @Override

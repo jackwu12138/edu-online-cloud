@@ -17,10 +17,9 @@ import java.util.List;
  *
  * @author jackwu
  */
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ArticleConvert {
 
-    ArticleConvert INSTANCE = Mappers.getMapper(ArticleConvert.class);
 
     /**
      * 将 ArticleDO 转换为 ArticleUpdateResponseVO

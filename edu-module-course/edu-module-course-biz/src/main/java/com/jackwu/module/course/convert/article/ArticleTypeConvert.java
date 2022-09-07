@@ -16,10 +16,9 @@ import java.util.List;
  *
  * @author jackwu
  */
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ArticleTypeConvert {
 
-    ArticleTypeConvert INSTANCE = Mappers.getMapper(ArticleTypeConvert.class);
 
     /**
      * 将 ArticleTypeCreateRequestVO 类型转换为 ArticleTypeDO 类型

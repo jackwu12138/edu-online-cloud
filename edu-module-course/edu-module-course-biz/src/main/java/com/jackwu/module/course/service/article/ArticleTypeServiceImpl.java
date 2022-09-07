@@ -30,6 +30,8 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
 
     private final ArticleTypeMapper baseMapper;
 
+    private final ArticleTypeConvert mapperConvert;
+
     @Lazy
     @Resource
     private ArticleService articleService;
@@ -37,7 +39,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
     @Override
     public Long createArticleType(ArticleTypeCreateRequestVO requestVO) {
         validateNameDuplicate(requestVO.getName(), null);
-        ArticleTypeDO entity = ArticleTypeConvert.INSTANCE.convert(requestVO);
+        ArticleTypeDO entity = mapperConvert.convert(requestVO);
         // 默认启用文章类型
         entity.setStatus(true);
         baseMapper.insert(entity);
@@ -60,7 +62,7 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
         validArticleTypeIdExists(requestVO.getId());
         // 验证修改后是否会发生名字的冲突
         validateNameDuplicate(requestVO.getName(), requestVO.getId());
-        ArticleTypeDO entity = ArticleTypeConvert.INSTANCE.convert(requestVO);
+        ArticleTypeDO entity = mapperConvert.convert(requestVO);
         baseMapper.updateById(entity);
     }
 
@@ -69,13 +71,13 @@ public class ArticleTypeServiceImpl implements ArticleTypeService {
         List<ArticleTypeDO> entities = baseMapper.selectList(ArticleTypeDO::getStatus, true);
         entities.sort(Comparator.comparingInt(ArticleTypeDO::getSort));
 
-        return ArticleTypeConvert.INSTANCE.convertList1(entities);
+        return mapperConvert.convertList1(entities);
     }
 
     @Override
     public List<ArticleTypeResponseVO> getArticleTypeList() {
         List<ArticleTypeDO> articleTypeDos = baseMapper.selectList(null);
-        return ArticleTypeConvert.INSTANCE.convertList(articleTypeDos);
+        return mapperConvert.convertList(articleTypeDos);
     }
 
     @Override

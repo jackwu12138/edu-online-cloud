@@ -6,19 +6,14 @@ import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 import com.jackwu.module.member.dal.dataobject.user.UserDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 /**
  * 用户相关的类型转换器
  *
  * @author jackwu
  */
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserConvert {
-
-    UserConvert INSTANCE = Mappers.getMapper(UserConvert.class);
 
     /**
      * 将 UserCreateRequestVO 转换为 UserDO
