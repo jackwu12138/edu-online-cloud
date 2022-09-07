@@ -1,6 +1,8 @@
 package com.jackwu.module.member.controller.user;
 
 import com.jackwu.framework.common.pojo.CommonResult;
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 import com.jackwu.module.member.service.user.UserService;
@@ -40,10 +42,10 @@ public class UserController {
         return success(true);
     }
 
-    @ApiOperation("用户信息列表")
-    @GetMapping("/list")
-    public CommonResult<List<UserListResponseVO>> getUserList() {
-        return CommonResult.success(service.getUserList());
+    @ApiOperation("用户信息分页列表")
+    @GetMapping("/page")
+    public CommonResult<PageResult<UserListResponseVO>> getUserPageList(PageParam param) {
+        return CommonResult.success(service.getUserPageList(param));
     }
 }
 

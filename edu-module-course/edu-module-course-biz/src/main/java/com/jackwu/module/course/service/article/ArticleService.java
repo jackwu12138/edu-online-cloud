@@ -1,5 +1,7 @@
 package com.jackwu.module.course.service.article;
 
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.course.controller.article.vo.article.ArticleCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleListResponseVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
@@ -37,11 +39,12 @@ public interface ArticleService {
     void updateArticle(ArticleUpdateRequestVO vo);
 
     /**
-     * 获取全部的文章列表
+     * 获取文章分页列表
      *
-     * @return 文章列表
+     * @param param 分页参数
+     * @return 文章分页列表
      */
-    List<ArticleListResponseVO> getArticleList();
+    PageResult<ArticleListResponseVO> getArticlePageList(PageParam param);
 
     /**
      * 根据 id 获取文章信息

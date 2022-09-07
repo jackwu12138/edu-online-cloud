@@ -1,5 +1,6 @@
 package com.jackwu.module.member.convert.user;
 
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 import com.jackwu.module.member.dal.dataobject.user.UserDO;
@@ -37,10 +38,10 @@ public interface UserConvert {
     UserDO convert(UserCreateRequestVO vo);
 
     /**
-     * 将 UserDO 列表转换为 UserListResponseVO 列表
+     * 将 UserDO 分页列表转换为 UserListResponseVO 分页列表
      *
-     * @param users 要转换的 userDO 列表
-     * @return 转换后的 UserListResponseVO 列表
+     * @param users 要转换的 userDO 分页列表
+     * @return 转换后的 UserListResponseVO 分页列表
      */
-    List<UserListResponseVO> convertList(List<UserDO> users);
+    PageResult<UserListResponseVO> convertPage(PageResult<UserDO> users);
 }

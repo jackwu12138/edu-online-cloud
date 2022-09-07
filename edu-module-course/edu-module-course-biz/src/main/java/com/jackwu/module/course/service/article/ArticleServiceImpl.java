@@ -1,6 +1,8 @@
 package com.jackwu.module.course.service.article;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.course.controller.article.vo.article.ArticleCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleListResponseVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
@@ -65,13 +67,13 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleListResponseVO> getArticleList() {
-        List<ArticleDO> articleDos = baseMapper.selectList(null);
+    public PageResult<ArticleListResponseVO> getArticlePageList(PageParam param) {
+        PageResult<ArticleDO> articleDos = baseMapper.selectPage(param,null);
         // 查出的所有文章信息转换为 vo
-        List<ArticleListResponseVO> vos = ArticleConvert.INSTANCE.convertList(articleDos);
+        PageResult<ArticleListResponseVO> vos = ArticleConvert.INSTANCE.convertPage(articleDos);
         // 根据 typeId 去查询相对应的文章类型名
         // todo 循环查库, 后面记得做缓存
-        vos.forEach(vo -> vo.setTypeName(articleTypeService.getArticleTypeNameById(vo.getType())));
+        vos.getData().forEach(vo -> vo.setTypeName(articleTypeService.getArticleTypeNameById(vo.getType())));
 
         return vos;
     }

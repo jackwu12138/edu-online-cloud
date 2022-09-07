@@ -1,5 +1,7 @@
 package com.jackwu.module.member.service.user;
 
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 
@@ -30,8 +32,9 @@ public interface UserService {
     /**
      * 获得用户列表详细信息
      *
+     * @param param 分页参数
      * @return 用户列表
      */
-    List<UserListResponseVO> getUserList();
+    PageResult<UserListResponseVO> getUserPageList(PageParam param);
 }
 

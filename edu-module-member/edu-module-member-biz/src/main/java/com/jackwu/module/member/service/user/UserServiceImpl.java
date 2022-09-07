@@ -2,6 +2,8 @@ package com.jackwu.module.member.service.user;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 import com.jackwu.module.member.convert.user.UserConvert;
@@ -48,10 +50,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserListResponseVO> getUserList() {
-        List<UserDO> users = this.baseMapper.selectList(null);
+    public PageResult<UserListResponseVO> getUserPageList(PageParam param) {
+        PageResult<UserDO> users = this.baseMapper.selectPage(param, null);
 
-        return UserConvert.INSTANCE.convertList(users);
+        return UserConvert.INSTANCE.convertPage(users);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.jackwu.module.course.convert.article;
 
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.course.controller.article.vo.article.ArticleCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleListResponseVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
@@ -64,11 +65,11 @@ public interface ArticleConvert {
     ArticleDO convert(ArticleCreateRequestVO vo);
 
     /**
-     * 将 ArticleDO 列表转换为 ArticleListResponseVO 列表
+     * 将 ArticleDO 分页列表转换为 ArticleListResponseVO 分页列表
      *
-     * @param articleDos 要转换的 ArticleDO 列表
-     * @return 转换后的 ArticleListResponseVO 列表
+     * @param dos 要转换的 ArticleDO 分页列表
+     * @return 转换后的 ArticleListResponseVO 分页列表
      */
-    @Mapping(target = "typeName", ignore = true)
-    List<ArticleListResponseVO> convertList(List<ArticleDO> articleDos);
+    @Mapping(target = "dos.typeName", ignore = true)
+    PageResult<ArticleListResponseVO> convertPage(PageResult<ArticleDO> dos);
 }

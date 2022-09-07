@@ -1,9 +1,15 @@
 package com.jackwu.framework.mybatis.core.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Collection;
 import java.util.List;
@@ -124,5 +130,19 @@ public interface BaseMapperX<T> extends BaseMapper<T> {
      */
     default List<T> selectList(SFunction<T, ?> field, Collection<?> values) {
         return selectList(new LambdaQueryWrapper<T>().in(field, values));
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param param        分页参数
+     * @param queryWrapper 查询条件
+     * @return 分页列表
+     */
+    default PageResult<T> selectPage(PageParam param, @Param("ew") Wrapper<T> queryWrapper) {
+        IPage<T> mpPage = new Page<>(param.getPage(), param.getSize());
+        selectPage(mpPage, queryWrapper);
+        return new PageResult<>(mpPage.getTotal(), mpPage.getCurrent(), mpPage.getSize(),
+                mpPage.getPages(), mpPage.getRecords());
     }
 }

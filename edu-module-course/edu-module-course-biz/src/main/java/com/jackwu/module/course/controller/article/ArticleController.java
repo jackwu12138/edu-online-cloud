@@ -1,6 +1,8 @@
 package com.jackwu.module.course.controller.article;
 
 import com.jackwu.framework.common.pojo.CommonResult;
+import com.jackwu.framework.common.pojo.PageParam;
+import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.course.controller.article.vo.article.ArticleCreateRequestVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleListResponseVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
@@ -46,10 +48,10 @@ public class ArticleController {
         return CommonResult.success(true);
     }
 
-    @ApiOperation("获取文章完整内容列表")
-    @GetMapping("/list")
-    public CommonResult<List<ArticleListResponseVO>> getArticleList() {
-        return CommonResult.success(service.getArticleList());
+    @ApiOperation("获取文章分页列表")
+    @GetMapping("/page")
+    public CommonResult<PageResult<ArticleListResponseVO>> getArticlePageList(PageParam param) {
+        return CommonResult.success(service.getArticlePageList(param));
     }
 
     @ApiOperation("根据id获取文章内容")
