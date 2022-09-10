@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -22,18 +23,18 @@ public class ArticleTypeResponseVO extends ArticleTypeBaseVO {
     /**
      * 文章类型编号
      */
-    @ApiModelProperty(value = "文章类型编号", required = true, example = "1024")
+    @ApiModelProperty(value = "文章类型编号", example = "1024")
     private Long id;
 
     /**
      * 是否启用
      */
-    @ApiModelProperty(value = "是否启用", required = true)
+    @ApiModelProperty(value = "是否启用")
     private Boolean status;
 
     /**
      * 创建时间
      */
-    @ApiModelProperty(value = "创建时间", required = true)
+    @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 }

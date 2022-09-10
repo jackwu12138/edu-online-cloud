@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static com.jackwu.framework.common.pojo.CommonResult.success;
@@ -30,7 +31,7 @@ public class ArticleTypeController {
 
     @ApiOperation("创建文章类型")
     @PostMapping("/create")
-    public CommonResult<Long> createArticleType(@RequestBody ArticleTypeCreateRequestVO requestVO) {
+    public CommonResult<Long> createArticleType(@Valid @RequestBody ArticleTypeCreateRequestVO requestVO) {
         Long id = service.createArticleType(requestVO);
         return success(id);
     }
@@ -44,7 +45,7 @@ public class ArticleTypeController {
 
     @ApiOperation("更新文章类型")
     @PutMapping("/update")
-    public CommonResult<Boolean> updateArticleType(@RequestBody ArticleTypeUpdateRequestVO requestVO) {
+    public CommonResult<Boolean> updateArticleType(@Valid @RequestBody ArticleTypeUpdateRequestVO requestVO) {
         service.updateArticleType(requestVO);
         return success(true);
     }

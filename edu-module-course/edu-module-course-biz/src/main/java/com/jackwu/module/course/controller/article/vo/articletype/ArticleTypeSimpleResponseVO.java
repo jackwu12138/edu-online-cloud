@@ -16,12 +16,12 @@ public class ArticleTypeSimpleResponseVO {
     /**
      * 文章类型编号
      */
-    @ApiModelProperty(value = "文章类型编号", required = true, example = "1024")
+    @ApiModelProperty(value = "文章类型编号", example = "1024")
     private Long id;
 
     /**
      * 文章类型名
      */
-    @ApiModelProperty(value = "文章类型名", required = true, example = "name")
+    @ApiModelProperty(value = "文章类型名", example = "name")
     private String name;
 }

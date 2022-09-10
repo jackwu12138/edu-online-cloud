@@ -1,7 +1,10 @@
 package com.jackwu.module.member.enums;
 
+import com.jackwu.framework.common.core.IntArrayValues;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.Arrays;
 
 /**
  * 姓名的枚举类
@@ -12,7 +15,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum SexEnums {
+public enum SexEnum implements IntArrayValues {
 
     /**
      * 未知
@@ -31,4 +34,11 @@ public enum SexEnums {
     ;
 
     private final Integer sex;
+
+    public static final int[] ARRAYS = Arrays.stream(values()).mapToInt(SexEnum::getSex).toArray();
+
+    @Override
+    public int[] toArray() {
+        return SexEnum.ARRAYS;
+    }
 }

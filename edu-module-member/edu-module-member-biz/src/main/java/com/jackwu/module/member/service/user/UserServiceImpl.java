@@ -9,11 +9,9 @@ import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 import com.jackwu.module.member.convert.user.UserConvert;
 import com.jackwu.module.member.dal.dataobject.user.UserDO;
 import com.jackwu.module.member.dal.mybatis.user.UserMapper;
-import com.jackwu.module.member.enums.SexEnums;
+import com.jackwu.module.member.enums.SexEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.jackwu.framework.common.util.exception.ServiceExceptionUtil.exception;
 import static com.jackwu.module.member.constants.MemberErrorCodeConstants.*;
@@ -180,7 +178,7 @@ public class UserServiceImpl implements UserService {
         }
         // 设置默认性别 - 默认为未知
         if (ObjectUtil.isNull(user.getSex())) {
-            user.setSex(SexEnums.UNKNOWN.getSex());
+            user.setSex(SexEnum.UNKNOWN.getSex());
         }
     }
 }

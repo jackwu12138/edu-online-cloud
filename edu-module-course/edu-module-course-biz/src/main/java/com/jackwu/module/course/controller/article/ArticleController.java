@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -28,9 +29,9 @@ public class ArticleController {
 
     private final ArticleService service;
 
-    @ApiOperation("删除文章")
+    @ApiOperation("创建文章")
     @PostMapping("/delete")
-    public CommonResult<Long> createArticle(@RequestBody ArticleCreateRequestVO vo) {
+    public CommonResult<Long> createArticle(@Valid @RequestBody ArticleCreateRequestVO vo) {
         return CommonResult.success(service.createArticle(vo));
     }
 
@@ -43,14 +44,14 @@ public class ArticleController {
 
     @ApiOperation("更新文章")
     @PutMapping("/update")
-    public CommonResult<Boolean> updateArticle(@RequestBody ArticleUpdateRequestVO vo) {
+    public CommonResult<Boolean> updateArticle(@Valid @RequestBody ArticleUpdateRequestVO vo) {
         service.updateArticle(vo);
         return CommonResult.success(true);
     }
 
     @ApiOperation("获取文章分页列表")
     @GetMapping("/page")
-    public CommonResult<PageResult<ArticleListResponseVO>> getArticlePageList(PageParam param) {
+    public CommonResult<PageResult<ArticleListResponseVO>> getArticlePageList(@Valid PageParam param) {
         return CommonResult.success(service.getArticlePageList(param));
     }
 

@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static com.jackwu.framework.common.pojo.CommonResult.success;
@@ -30,7 +31,7 @@ public class UserController {
 
     @ApiOperation("创建用户")
     @PostMapping("/create")
-    public CommonResult<Long> createUser(@RequestBody UserCreateRequestVO vo) {
+    public CommonResult<Long> createUser(@Valid @RequestBody UserCreateRequestVO vo) {
         Long id = service.createUser(vo);
         return success(id);
     }
@@ -44,7 +45,7 @@ public class UserController {
 
     @ApiOperation("用户信息分页列表")
     @GetMapping("/page")
-    public CommonResult<PageResult<UserListResponseVO>> getUserPageList(PageParam param) {
+    public CommonResult<PageResult<UserListResponseVO>> getUserPageList(@Valid PageParam param) {
         return CommonResult.success(service.getUserPageList(param));
     }
 }

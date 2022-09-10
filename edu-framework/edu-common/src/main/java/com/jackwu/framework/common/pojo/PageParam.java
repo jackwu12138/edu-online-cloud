@@ -3,6 +3,9 @@ package com.jackwu.framework.common.pojo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 /**
@@ -24,9 +27,11 @@ public class PageParam implements Serializable {
      */
     private static final Integer DEFAULT_SIZE = 10;
 
-    @ApiModelProperty(value = "页码，从 1 开始",example = "1")
+    @ApiModelProperty(value = "页码，从 1 开始", example = "1")
+    @Min(value = 1, message = "页码最小值为 1")
     private Integer page = DEFAULT_PAGE;
 
     @ApiModelProperty(value = "每页条数，最大值为 100", example = "10")
+    @Range(min = 10, max = 100, message = "每页条数在 10-100 之间")
     private Integer size = DEFAULT_SIZE;
 }
