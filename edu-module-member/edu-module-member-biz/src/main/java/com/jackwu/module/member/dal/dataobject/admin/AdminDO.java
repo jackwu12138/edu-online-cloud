@@ -1,10 +1,13 @@
-package com.jackwu.module.member.dal.dataobject.user;
+package com.jackwu.module.member.dal.dataobject.admin;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jackwu.framework.mybatis.core.dataobject.BaseDO;
-import lombok.*;
+import com.jackwu.module.member.enums.AdminTypeEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -16,9 +19,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "member_user")
-@EqualsAndHashCode(callSuper = true)
-public class UserDO extends BaseDO {
+@TableName(value = "member_admin")
+public class AdminDO extends BaseDO {
 
     /**
      * 用户ID
@@ -42,29 +44,24 @@ public class UserDO extends BaseDO {
     private String nickname;
 
     /**
-     * 用户邮箱
-     */
-    private String email;
-
-    /**
-     * 手机号码
-     */
-    private String mobile;
-
-    /**
-     * 用户性别
-     */
-    private Integer sex;
-
-    /**
      * 头像地址
      */
     private String avatar;
 
     /**
+     * 类型 {@link AdminTypeEnum}
+     */
+    private Integer type;
+
+    /**
      * 账号状态
      */
     private Boolean status;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 最后登录IP

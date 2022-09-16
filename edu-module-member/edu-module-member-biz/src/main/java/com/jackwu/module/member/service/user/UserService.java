@@ -5,8 +5,6 @@ import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
 
-import java.util.List;
-
 /**
  * 用户信息表的 service 接口
  *
@@ -28,6 +26,27 @@ public interface UserService {
      * @param id 要删除的用户编号
      */
     void deleteUser(Long id);
+
+    /**
+     * 封禁用户
+     *
+     * @param id 要封禁的用户 id
+     */
+    void blockUser(Long id);
+
+    /**
+     * 解封用户
+     *
+     * @param id 要解封的用户 id
+     */
+    void unblockUser(Long id);
+
+    /**
+     * 重置用户的密码
+     *
+     * @param id 要重置密码的用户 id
+     */
+    void resetUserPassword(Long id);
 
     /**
      * 获得用户列表详细信息

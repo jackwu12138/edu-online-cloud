@@ -43,10 +43,31 @@ public class UserController {
         return success(true);
     }
 
+    @ApiOperation("封禁用户")
+    @PutMapping("/block/{id}")
+    public CommonResult<Boolean> blockUser(@PathVariable Long id) {
+        service.blockUser(id);
+        return success(true);
+    }
+
+    @ApiOperation("解封用户")
+    @PutMapping("/unblock/{id}")
+    public CommonResult<Boolean> unblockUser(@PathVariable Long id) {
+        service.unblockUser(id);
+        return success(true);
+    }
+
+    @ApiOperation("重置用户密码")
+    @PutMapping("/reset-password/{id}")
+    public CommonResult<Boolean> resetUserPassword(@PathVariable Long id) {
+        service.resetUserPassword(id);
+        return success(true);
+    }
+
     @ApiOperation("用户信息分页列表")
     @GetMapping("/page")
     public CommonResult<PageResult<UserListResponseVO>> getUserPageList(@Valid PageParam param) {
-        return CommonResult.success(service.getUserPageList(param));
+        return success(service.getUserPageList(param));
     }
 }
 

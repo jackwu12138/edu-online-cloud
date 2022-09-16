@@ -2,6 +2,7 @@ package com.jackwu.module.member.service.user;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
+import com.jackwu.framework.common.exception.ErrorCode;
 import com.jackwu.framework.common.pojo.PageParam;
 import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
@@ -25,6 +26,11 @@ import static com.jackwu.module.member.constants.MemberErrorCodeConstants.*;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    /**
+     * 用户的默认密码
+     */
+    private static final String DEFAULT_PASSWORD = "123456";
+
     private final UserMapper baseMapper;
 
     private final UserConvert mapperConvert;
@@ -47,6 +53,37 @@ public class UserServiceImpl implements UserService {
         this.validateUserExists(id);
         // 执行删除操作
         baseMapper.deleteById(id);
+    }
+
+    @Override
+    public void blockUser(Long id) {
+        // 校验 id 是否存在
+        UserDO user = this.validateUserExists(id);
+        // 校验是否在未封禁状态
+        this.validateUserStatus(user, true);
+        // 执行封禁操作
+        UserDO updateEntity = new UserDO().setId(id).setStatus(false);
+        baseMapper.updateById(updateEntity);
+    }
+
+    @Override
+    public void unblockUser(Long id) {
+        // 校验 id 是否存在
+        UserDO user = this.validateUserExists(id);
+        // 校验是否在已封禁状态
+        this.validateUserStatus(user, false);
+        // 执行解封操作
+        UserDO updateEntity = new UserDO().setId(id).setStatus(true);
+        baseMapper.updateById(updateEntity);
+    }
+
+    @Override
+    public void resetUserPassword(Long id) {
+        // 校验 id 是否存在
+        this.validateUserExists(id);
+        // 重置用户密码
+        UserDO updateEntity = new UserDO().setId(id).setPassword(DEFAULT_PASSWORD);
+        baseMapper.updateById(updateEntity);
     }
 
     @Override
@@ -78,16 +115,17 @@ public class UserServiceImpl implements UserService {
      *
      * @param id 要校验的用户 id
      */
-    private void validateUserExists(Long id) {
+    private UserDO validateUserExists(Long id) {
         // 假如 id 为空则直接返回
         if (ObjectUtil.isNull(id)) {
-            return;
+            return null;
         }
         // 查询对应的用户数据
         UserDO userDO = this.baseMapper.selectById(id);
         if (ObjectUtil.isNull(userDO)) {
             throw exception(MEMBER_ERROR_USER_NOT_FOUND);
         }
+        return userDO;
     }
 
     /**
@@ -174,11 +212,28 @@ public class UserServiceImpl implements UserService {
         }
         // 设置默认密码
         if (ObjectUtil.isNull(user.getPassword())) {
-            user.setPassword("123456");
+            user.setPassword(DEFAULT_PASSWORD);
         }
         // 设置默认性别 - 默认为未知
         if (ObjectUtil.isNull(user.getSex())) {
             user.setSex(SexEnum.UNKNOWN.getSex());
+        }
+    }
+
+    /**
+     * 校验用户的账号状态
+     *
+     * @param user   用户信息
+     * @param status 状态
+     */
+    private void validateUserStatus(UserDO user, boolean status) {
+        if (ObjectUtil.isNull(user)) {
+            throw exception(MEMBER_ERROR_USER_NOT_FOUND);
+        }
+        // 假如账号状态不对应
+        if (ObjectUtil.notEqual(user.getStatus(), status)) {
+            ErrorCode errorCode = user.getStatus() ? MEMBER_ERROR_USER_ALREADY_UNBLOCKED : MEMBER_ERROR_USER_ALREADY_BANNED;
+            throw exception(errorCode);
         }
     }
 }
