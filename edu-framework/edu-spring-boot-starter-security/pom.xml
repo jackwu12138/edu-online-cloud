@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>edu-framework</artifactId>
+        <groupId>com.jackwu</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>edu-spring-boot-starter-security</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>
+        对于权限控制的相关功能的封装
+    </description>
+    <url>https://github.com/jackwu12138/exam-online-cloud</url>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-common</artifactId>
+        </dependency>
+
+        <!-- ==================== 安全相关 ==================== -->
+
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

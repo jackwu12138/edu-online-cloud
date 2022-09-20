@@ -26,6 +26,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-module-system-api</artifactId>
+        </dependency>
+
+        <!-- ==================== spring 相关 ==================== -->
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
@@ -54,6 +61,13 @@
         <dependency>
             <groupId>com.jackwu</groupId>
             <artifactId>edu-spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <!-- ==================== 安全相关 ==================== -->
+
+        <dependency>
+            <groupId>com.jackwu</groupId>
+            <artifactId>edu-spring-boot-starter-security</artifactId>
         </dependency>
 
         <!-- ==================== 数据校验 ==================== -->

@@ -137,6 +137,12 @@
             <!-- ==================== 安全相关 ==================== -->
 
             <dependency>
+                <groupId>com.jackwu</groupId>
+                <artifactId>edu-spring-boot-starter-security</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
                 <groupId>cn.dev33</groupId>
                 <artifactId>sa-token-spring-boot-starter</artifactId>
                 <version>${satoken.version}</version>
@@ -266,6 +272,13 @@
             </dependency>
 
             <!-- ==================== 业务模块 ==================== -->
+
+            <dependency>
+                <groupId>com.jackwu</groupId>
+                <artifactId>edu-module-system-api</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>com.jackwu</groupId>

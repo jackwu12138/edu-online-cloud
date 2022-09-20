@@ -23,6 +23,7 @@
         <module>edu-spring-boot-starter-web</module>
         <module>edu-spring-boot-starter-validation</module>
         <module>edu-spring-boot-starter-redis</module>
+        <module>edu-spring-boot-starter-security</module>
     </modules>
 
     <packaging>pom</packaging>
