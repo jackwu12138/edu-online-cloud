@@ -1,6 +1,8 @@
 package com.jackwu.framework.web.config;
 
+import cn.hutool.log.Log;
 import com.jackwu.framework.web.core.handler.XssFilter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -20,6 +22,7 @@ import javax.servlet.Filter;
  *
  * @author jackwu
  */
+@Slf4j
 @Configuration
 @EnableConfigurationProperties({WebProperties.class, XssProperties.class})
 public class EduWebAutoConfiguration implements WebMvcConfigurer {
@@ -38,6 +41,7 @@ public class EduWebAutoConfiguration implements WebMvcConfigurer {
      */
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilterBean() {
+        log.debug("Bean 'corsFilterBean' configured for use");
         // 创建 CorsConfiguration 对象
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
