@@ -1,5 +1,6 @@
 package com.jackwu.framework.redis.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -10,13 +11,16 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  *
  * @author jackwu
  */
-public class EduRedisConfiguration {
+@Slf4j
+public class EduRedisAutoConfiguration {
 
     /**
      * 创建 RedisTemplate Bean，使用 JSON 序列化方式
      */
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+        log.debug("Bean 'EduMetaObjectHandler' configured for use");
+
         // 创建 RedisTemplate 对象
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         // 设置 RedisConnection 工厂。
