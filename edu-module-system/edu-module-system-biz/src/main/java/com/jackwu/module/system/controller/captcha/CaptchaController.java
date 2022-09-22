@@ -1,5 +1,6 @@
 package com.jackwu.module.system.controller.captcha;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import com.jackwu.framework.common.pojo.CommonResult;
 import com.jackwu.module.system.controller.captcha.vo.CaptchaResponseVO;
 import com.jackwu.module.system.service.captcha.CaptchaService;

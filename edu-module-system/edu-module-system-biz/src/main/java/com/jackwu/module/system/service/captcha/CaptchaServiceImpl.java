@@ -13,8 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import static com.jackwu.framework.common.util.exception.ServiceExceptionUtil.exception;
-import static com.jackwu.module.system.constants.SystemErrorCodeConstants.SYSTEM_ERROR_CAPTCHA_ERROR;
-import static com.jackwu.module.system.constants.SystemErrorCodeConstants.SYSTEM_ERROR_CAPTCHA_NOT_FOUND;
+import static com.jackwu.module.system.constants.SystemErrorCodeConstants.*;
 
 /**
  * 验证码的 service 实现类
@@ -33,7 +32,7 @@ public class CaptchaServiceImpl implements CaptchaService {
     @Override
     public CaptchaResponseVO generateCaptcha() {
         if (!captchaProperties.getEnable()) {
-            return null;
+            throw exception(SYSTEM_ERROR_NOT_ENABLE);
         }
         CircleCaptcha captcha = CaptchaUtil.createCircleCaptcha(captchaProperties.getWidth(),
                 captchaProperties.getHeight(),

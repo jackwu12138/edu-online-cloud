@@ -3,6 +3,7 @@ package com.jackwu.module.system.controller.auth;
 
 import com.jackwu.framework.common.pojo.CommonResult;
 import com.jackwu.module.system.controller.auth.vo.user.UserLoginRequestVO;
+import com.jackwu.module.system.controller.auth.vo.user.UserLoginResponseVO;
 import com.jackwu.module.system.service.auth.UserAuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,9 +32,7 @@ public class UserAuthController {
 
     @ApiOperation("用户登录")
     @PostMapping("/")
-    public CommonResult<Boolean> userLogin(@Valid @RequestBody UserLoginRequestVO vo) {
-        service.userLogin(vo);
-        return success(true);
+    public CommonResult<UserLoginResponseVO> userLogin(@Valid @RequestBody UserLoginRequestVO vo) {
+        return success(service.userLogin(vo));
     }
-
 }
