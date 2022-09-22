@@ -24,5 +24,11 @@
             <groupId>com.jackwu</groupId>
             <artifactId>edu-common</artifactId>
         </dependency>
+
+        <!-- RPC 远程调用相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 </project>

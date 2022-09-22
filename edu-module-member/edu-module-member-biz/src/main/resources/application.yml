@@ -44,3 +44,13 @@ mybatis-plus:
         banner: false
     type-aliases-package: com.jackwu.module.member.dal.dataobject
 
+--- #################### swagger 相关配置 ####################
+
+edu:
+    swagger:
+        enable: true
+        author: jackwu
+        title: 用户模块
+        description: 提供用户管理相关的功能
+        version: 1.0.0
+

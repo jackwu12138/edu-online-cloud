@@ -87,6 +87,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDO getUserByUsername(String username) {
+        return this.baseMapper.selectOne(UserDO::getUsername, username);
+    }
+
+    @Override
     public PageResult<UserListResponseVO> getUserPageList(PageParam param) {
         PageResult<UserDO> users = this.baseMapper.selectPage(param, null);
 

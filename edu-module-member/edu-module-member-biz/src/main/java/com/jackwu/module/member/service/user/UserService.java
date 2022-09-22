@@ -4,6 +4,7 @@ import com.jackwu.framework.common.pojo.PageParam;
 import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
 import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
+import com.jackwu.module.member.dal.dataobject.user.UserDO;
 
 /**
  * 用户信息表的 service 接口
@@ -55,5 +56,13 @@ public interface UserService {
      * @return 用户列表
      */
     PageResult<UserListResponseVO> getUserPageList(PageParam param);
+
+    /**
+     * 根据用户名获取用户信息
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    UserDO getUserByUsername(String username);
 }
 
