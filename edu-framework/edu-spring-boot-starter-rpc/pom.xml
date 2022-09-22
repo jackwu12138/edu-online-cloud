@@ -9,46 +9,50 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>edu-spring-boot-starter-mybatis</artifactId>
+    <artifactId>edu-spring-boot-starter-rpc</artifactId>
 
     <name>${project.artifactId}</name>
     <description>
-        对于 Mybatis 的相关功能的封装
+        提供 RPC 远程调用的功能
     </description>
     <url>https://github.com/jackwu12138/exam-online-cloud</url>
 
     <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>com.jackwu</groupId>
             <artifactId>edu-common</artifactId>
         </dependency>
 
-        <!-- ==================== 数据库相关 ==================== -->
+        <!-- ==================== 远程调用相关 ==================== -->
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-common</artifactId>
+            <exclusions>
+                <!-- 移除 log4j 的依赖项-->
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-rpc-api</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>

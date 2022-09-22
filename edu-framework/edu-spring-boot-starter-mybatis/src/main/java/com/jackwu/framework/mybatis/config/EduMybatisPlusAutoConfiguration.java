@@ -34,6 +34,7 @@ public class EduMybatisPlusAutoConfiguration {
      */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        log.debug("Bean 'mybatisPlusInterceptor' configured for use");
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
         return mybatisPlusInterceptor;

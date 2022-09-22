@@ -1,8 +1,12 @@
 package com.jackwu.framework.web.core.handler;
 
+import cn.dev33.satoken.exception.NotLoginException;
+import cn.dev33.satoken.util.SaResult;
 import cn.hutool.core.util.StrUtil;
+import com.jackwu.framework.common.exception.ErrorCode;
 import com.jackwu.framework.common.exception.ServiceException;
 import com.jackwu.framework.common.pojo.CommonResult;
+import com.jackwu.framework.security.core.util.SaTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -30,47 +34,11 @@ import static com.jackwu.framework.common.exception.constants.GlobalErrorCodeCon
 public class GlobalExceptionHandler {
 
     /**
-     * 处理所有异常，主要是提供给 Filter 使用
-     * 因为 Filter 不走 SpringMVC 的流程，但是我们又需要兜底处理异常，所以这里提供一个全量的异常处理过程，保持逻辑统一。
-     *
-     * @param request 请求
-     * @param ex      异常
-     * @return 通用返回
-     */
-    public CommonResult<?> allExceptionHandler(HttpServletRequest request, Throwable ex) {
-        if (ex instanceof MissingServletRequestParameterException) {
-            return missingServletRequestParameterExceptionHandler((MissingServletRequestParameterException) ex);
-        }
-        if (ex instanceof MethodArgumentTypeMismatchException) {
-            return methodArgumentTypeMismatchExceptionHandler((MethodArgumentTypeMismatchException) ex);
-        }
-        if (ex instanceof MethodArgumentNotValidException) {
-            return methodArgumentNotValidExceptionExceptionHandler((MethodArgumentNotValidException) ex);
-        }
-        if (ex instanceof BindException) {
-            return bindExceptionHandler((BindException) ex);
-        }
-        if (ex instanceof ConstraintViolationException) {
-            return constraintViolationExceptionHandler((ConstraintViolationException) ex);
-        }
-        if (ex instanceof NoHandlerFoundException) {
-            return noHandlerFoundExceptionHandler((NoHandlerFoundException) ex);
-        }
-        if (ex instanceof HttpRequestMethodNotSupportedException) {
-            return httpRequestMethodNotSupportedExceptionHandler((HttpRequestMethodNotSupportedException) ex);
-        }
-        if (ex instanceof ServiceException) {
-            return serviceExceptionHandler((ServiceException) ex);
-        }
-        return defaultExceptionHandler(ex);
-    }
-
-    /**
      * 处理 SpringMVC 请求参数缺失
      * <p>
      * 例如说，接口上设置了 @RequestParam("xx") 参数，结果并未传递 xx 参数
      */
-    @ExceptionHandler(value = MissingServletRequestParameterException.class)
+    @ExceptionHandler(MissingServletRequestParameterException.class)
     public CommonResult<?> missingServletRequestParameterExceptionHandler(MissingServletRequestParameterException ex) {
         log.warn("[missingServletRequestParameterExceptionHandler]", ex);
         return CommonResult.error(USER_ERROR_BAD_REQUEST.getCode(),
@@ -116,7 +84,7 @@ public class GlobalExceptionHandler {
     /**
      * 处理 Validator 校验不通过产生的异常
      */
-    @ExceptionHandler(value = ConstraintViolationException.class)
+    @ExceptionHandler(ConstraintViolationException.class)
     public CommonResult<?> constraintViolationExceptionHandler(ConstraintViolationException ex) {
         log.warn("[constraintViolationExceptionHandler]", ex);
         ConstraintViolation<?> constraintViolation = ex.getConstraintViolations().iterator().next();
@@ -155,10 +123,21 @@ public class GlobalExceptionHandler {
      * <p>
      * 例如说，商品库存不足，用户手机号已存在。
      */
-    @ExceptionHandler(value = ServiceException.class)
+    @ExceptionHandler( ServiceException.class)
     public CommonResult<?> serviceExceptionHandler(ServiceException ex) {
         log.info("[serviceExceptionHandler] {} -- {}", ex.getCode(), ex.getMsg());
         return CommonResult.error(ex.getCode(), ex.getMsg());
+    }
+
+    /**
+     * 处理未登录的异常, 来定制化处理未登录的逻辑
+     */
+    @ExceptionHandler(NotLoginException.class)
+    public CommonResult<?> notLoginExceptionHandler(NotLoginException ex) {
+        ErrorCode e = SaTokenUtil.getNotLoginExceptionException(ex);
+        log.info("[notLoginExceptionHandler] {} -- {}", e.getCode(), e.getMsg());
+
+        return CommonResult.error(e.getCode(), e.getMsg());
     }
 
     /**

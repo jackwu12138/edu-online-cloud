@@ -2,6 +2,7 @@ package com.jackwu.framework.common.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jackwu.framework.common.exception.ErrorCode;
+import com.jackwu.framework.common.exception.ServiceException;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -59,6 +60,8 @@ public class CommonResult<T> implements Serializable {
         return error(errorCode.getCode(), errorCode.getMsg());
     }
 
+    // ------------------------- 集成 Exception 体系 ------------------------- //
+
     /**
      * 请求是否成功
      *
@@ -67,5 +70,28 @@ public class CommonResult<T> implements Serializable {
     @JsonIgnore
     public boolean isSuccess() {
         return this.code.equals(SUCCESS.getCode());
+    }
+
+    /**
+     * 判断是否有异常。如果有，则抛出 {@link ServiceException} 异常
+     */
+    public void checkError() throws ServiceException {
+        if (isSuccess()) {
+            return;
+        }
+        // 业务异常
+        throw new ServiceException(code, msg);
+    }
+
+    /**
+     * 判断是否有异常。如果有，则抛出 {@link ServiceException} 异常
+     * 如果没有，则返回 {@link #data} 数据
+     *
+     * @return data
+     */
+    @JsonIgnore
+    public T getCheckedData() {
+        checkError();
+        return data;
     }
 }

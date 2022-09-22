@@ -26,6 +26,16 @@ public interface GlobalErrorCodeConstants {
     ErrorCode USER_ERROR_LOCKED = new ErrorCode("A0006", "请求失败，请稍后重试");
     ErrorCode USER_ERROR_TOO_MANY_REQUESTS = new ErrorCode("A0007", "请求过于频繁，请稍后重试");
 
+
+    // ---------- 和 NotLoginException 的集成 ---------- //
+
+    ErrorCode USER_ERROR_NOT_TOKEN = new ErrorCode("A008", "未能读取到有效Token");
+    ErrorCode USER_ERROR_INVALID_TOKEN = new ErrorCode("A0009", "token无效");
+    ErrorCode USER_ERROR_TOKEN_TIMEOUT = new ErrorCode("A0010", "token已过期");
+    ErrorCode USER_ERROR_BE_REPLACED = new ErrorCode("A0011", "你已被顶下线");
+    ErrorCode USER_ERROR_KICK_OUT = new ErrorCode("A0012", "你已被踢下线");
+    ErrorCode USER_ERROR_NOT_LOGIN = new ErrorCode("A0013", "当前会话未登录");
+
     // -------------------- 服务端未知错误 -------------------- //
 
     ErrorCode SERVER_ERROR_UNKNOWN = new ErrorCode("B0000", "系统未知错误!");
