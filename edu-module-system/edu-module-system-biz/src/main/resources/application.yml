@@ -74,7 +74,6 @@ spring:
 
 edu:
     swagger:
-        enable: true
         author: jackwu
         title: 系统模块
         description: 提供系统管理, 配置相关的功能

@@ -17,25 +17,61 @@ spring:
                 namespace: dev
                 file-extension: yaml
 
---- # ==================== 配置中心相关配置 ==================== #
+--- # ==================== gateway 转发配置 ==================== #
 
 spring:
     cloud:
         gateway:
             routes:
+                ### 统一的 swagger 资源访问路径配置
+                -   id: swagger-system-api
+                    uri: lb://edu-module-system
+                    predicates:
+                        - Path=/system/v2/**
+                    filters:
+                        - StripPrefix=1
+
+                -   id: swagger-infra-api
+                    uri: lb://edu-module-infra
+                    predicates:
+                        - Path=/infra/v2/**
+                    filters:
+                        - StripPrefix=1
+
+                -   id: swagger-course-api
+                    uri: lb://edu-module-course
+                    predicates:
+                        - Path=/course/v2/**
+                    filters:
+                        - StripPrefix=1
+
+                -   id: swagger-member-api
+                    uri: lb://edu-module-member
+                    predicates:
+                        - Path=/member/v2/**
+                    filters:
+                        - StripPrefix=1
+
+                ### api 访问路径
+
                 -   id: system-system-api
                     uri: lb://edu-module-system
                     predicates:
                         - Path=/system/**
+
                 -   id: system-infra-api
                     uri: lb://edu-module-infra
                     predicates:
                         - Path=/infra/**
+
                 -   id: system-course-api
                     uri: lb://edu-module-course
                     predicates:
                         - Path=/course/**
+
                 -   id: system-member-api
                     uri: lb://edu-module-member
                     predicates:
                         - Path=/member/**
+
+

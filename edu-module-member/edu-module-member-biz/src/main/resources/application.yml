@@ -74,7 +74,6 @@ spring:
 
 edu:
     swagger:
-        enable: true
         author: jackwu
         title: 用户模块
         description: 提供用户管理相关的功能

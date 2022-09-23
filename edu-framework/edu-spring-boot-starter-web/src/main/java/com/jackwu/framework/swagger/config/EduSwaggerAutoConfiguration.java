@@ -45,7 +45,6 @@ import java.util.stream.Collectors;
 @EnableKnife4j
 @ConditionalOnClass({Docket.class, ApiInfoBuilder.class})
 @EnableConfigurationProperties(SwaggerProperties.class)
-@ConditionalOnProperty(prefix = "edu.swagger", value = "enable", matchIfMissing = true)
 public class EduSwaggerAutoConfiguration {
 
     /**
