@@ -29,7 +29,7 @@ public interface GlobalErrorCodeConstants {
 
     // ---------- 和 NotLoginException 的集成 ---------- //
 
-    ErrorCode USER_ERROR_NOT_TOKEN = new ErrorCode("A008", "未能读取到有效Token");
+    ErrorCode USER_ERROR_NOT_TOKEN = new ErrorCode("A0008", "未能读取到有效Token");
     ErrorCode USER_ERROR_INVALID_TOKEN = new ErrorCode("A0009", "token无效");
     ErrorCode USER_ERROR_TOKEN_TIMEOUT = new ErrorCode("A0010", "token已过期");
     ErrorCode USER_ERROR_BE_REPLACED = new ErrorCode("A0011", "你已被顶下线");
