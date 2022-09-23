@@ -36,13 +36,13 @@ public class CaptchaServiceImpl implements CaptchaService {
         }
         CircleCaptcha captcha = CaptchaUtil.createCircleCaptcha(captchaProperties.getWidth(),
                 captchaProperties.getHeight(),
-                captchaProperties.getLength() ,
+                captchaProperties.getLength(),
                 20);
         String value = captcha.getCode();
         String key = UUID.fastUUID().toString(true);
         captchaRedisDao.set(key, value, captchaProperties.getTimeout());
-        log.debug("captcha: {} --- {}",key, value );
-        return CaptchaResponseVO.builder().token(key).image(captcha.getImageBase64()).build() ;
+        log.debug("captcha: {} --- {}", key, value);
+        return CaptchaResponseVO.builder().token(key).image(captcha.getImageBase64()).build();
     }
 
     @Override

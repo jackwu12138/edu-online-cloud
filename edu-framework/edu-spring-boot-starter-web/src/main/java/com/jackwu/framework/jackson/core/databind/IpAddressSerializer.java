@@ -8,9 +8,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
-import com.jackwu.framework.jackson.core.annotation.Desensitization;
 import com.jackwu.framework.jackson.core.annotation.IpAddress;
-import com.jackwu.framework.jackson.core.enums.DesensitizationType;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -23,6 +21,7 @@ import java.util.Objects;
  *     <li>节省空间, 使用字符串需要15个字节(255.255.255.255), 使用 Long 则只需要八个字节</li>
  *     <li>方便范围查询</li>
  * </ol>
+ *
  * @author jackwu
  */
 @Slf4j

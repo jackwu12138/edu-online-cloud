@@ -7,7 +7,6 @@ import com.jackwu.frameword.validation.core.annotation.Email;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import static cn.hutool.core.lang.Validator.isEmail;
 import static com.jackwu.frameword.validation.core.constant.PatternConstants.EMAIL_PATTERN;
 
 /**

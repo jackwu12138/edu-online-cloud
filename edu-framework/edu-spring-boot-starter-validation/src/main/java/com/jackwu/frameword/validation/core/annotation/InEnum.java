@@ -11,7 +11,6 @@ import java.lang.annotation.Target;
 
 import static com.jackwu.frameword.validation.core.constant.ValidationMessageConstants.IN_ENUM_MESSAGE;
 import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
@@ -22,6 +21,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = {InEnumValidator.class})
 public @interface InEnum {
+
     /**
      * @return 实现 Enum 接口的
      */

@@ -6,7 +6,7 @@ import static com.jackwu.frameword.validation.core.constant.RegexConstants.*;
 
 /**
  * 常用的正则校验规则
- * 
+ *
  * @author jackwu
  */
 public interface PatternConstants {
@@ -19,7 +19,7 @@ public interface PatternConstants {
     /**
      * 移动电话
      */
-    Pattern MOBILE_PATTERN = Pattern.compile(MOBILE_REGEX) ;
+    Pattern MOBILE_PATTERN = Pattern.compile(MOBILE_REGEX);
 
     /**
      * URL

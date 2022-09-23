@@ -1,6 +1,5 @@
 package com.jackwu.framework.web.config;
 
-import cn.hutool.log.Log;
 import com.jackwu.framework.web.core.handler.XssFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.WebProperties;

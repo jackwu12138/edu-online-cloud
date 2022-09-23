@@ -100,7 +100,7 @@ public class RedisKeyDefine {
 
     /**
      * Value 类型
-     *
+     * <p>
      * 如果是使用分布式锁，设置为 {@link java.util.concurrent.locks.Lock} 类型
      */
     private final Class<?> valueType;
@@ -121,7 +121,7 @@ public class RedisKeyDefine {
     private final String memo;
 
     private RedisKeyDefine(String memo, String keyTemplate, KeyTypeEnum keyType, Class<?> valueType,
-                           TimeoutTypeEnum timeoutType, Duration timeout) {
+            TimeoutTypeEnum timeoutType, Duration timeout) {
         this.memo = memo;
         this.keyTemplate = keyTemplate;
         this.keyType = keyType;
@@ -140,7 +140,7 @@ public class RedisKeyDefine {
         this(memo, keyTemplate, keyType, valueType, timeoutType, Duration.ZERO);
     }
 
-    public String formatKey(Object... args){
+    public String formatKey(Object... args) {
         return StrUtil.format(this.keyTemplate, args);
     }
 }

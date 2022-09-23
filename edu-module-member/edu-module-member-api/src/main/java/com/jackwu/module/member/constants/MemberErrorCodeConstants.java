@@ -20,5 +20,4 @@ public interface MemberErrorCodeConstants {
     ErrorCode MEMBER_ERROR_USER_PASSWORD_ERROR = new ErrorCode("A4006", "用户名或密码错误!");
     ErrorCode MEMBER_ERROR_ADMIN_NOT_FOUND = new ErrorCode("A4010", "管理员账号不存在");
     ErrorCode MEMBER_ERROR_ADMIN_REPEAT = new ErrorCode("A4011", "管理员账号不能重复");
-
 }

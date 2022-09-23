@@ -11,12 +11,14 @@ public interface CaptchaService {
 
     /**
      * 创建验证码
+     *
      * @return 验证码图片的 base64 编码
      */
     CaptchaResponseVO generateCaptcha();
 
     /**
      * 校验验证码
+     *
      * @param token 要校验的验证码的 key
      * @param value 验证码的值
      */

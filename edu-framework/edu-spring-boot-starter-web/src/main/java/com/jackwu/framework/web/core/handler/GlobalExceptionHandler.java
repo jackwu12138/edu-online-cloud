@@ -1,7 +1,6 @@
 package com.jackwu.framework.web.core.handler;
 
 import cn.dev33.satoken.exception.NotLoginException;
-import cn.dev33.satoken.util.SaResult;
 import cn.hutool.core.util.StrUtil;
 import com.jackwu.framework.common.exception.ErrorCode;
 import com.jackwu.framework.common.exception.ServiceException;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
@@ -123,7 +121,7 @@ public class GlobalExceptionHandler {
      * <p>
      * 例如说，商品库存不足，用户手机号已存在。
      */
-    @ExceptionHandler( ServiceException.class)
+    @ExceptionHandler(ServiceException.class)
     public CommonResult<?> serviceExceptionHandler(ServiceException ex) {
         log.info("[serviceExceptionHandler] {} -- {}", ex.getCode(), ex.getMsg());
         return CommonResult.error(ex.getCode(), ex.getMsg());

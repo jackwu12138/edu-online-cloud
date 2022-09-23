@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ServiceException extends RuntimeException{
+public class ServiceException extends RuntimeException {
 
     /**
      * 所抛出的错误的错误代码
@@ -33,7 +33,7 @@ public class ServiceException extends RuntimeException{
      * 私有构造方法
      * 防止被其他地方调用
      */
-    private ServiceException(){}
+    private ServiceException() {}
 
     public ServiceException(ErrorCode errorCode) {
         this.code = errorCode.getCode();

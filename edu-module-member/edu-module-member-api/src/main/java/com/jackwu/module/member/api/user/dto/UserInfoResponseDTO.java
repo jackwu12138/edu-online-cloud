@@ -13,11 +13,10 @@ import lombok.ToString;
 @ToString
 public class UserInfoResponseDTO {
 
-
     /**
      * 用户ID
      */
-    @ApiModelProperty(value = "用户ID",example = "1024")
+    @ApiModelProperty(value = "用户ID", example = "1024")
     private Long id;
 
     /**

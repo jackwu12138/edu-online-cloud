@@ -10,7 +10,6 @@ import java.lang.annotation.Target;
 
 import static com.jackwu.frameword.validation.core.constant.ValidationMessageConstants.EMAIL_VERIFICATION_FAILED;
 import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
@@ -21,6 +20,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = {EmailValidator.class})
 public @interface Email {
+
     String message() default EMAIL_VERIFICATION_FAILED;
 
     Class<?>[] groups() default {};

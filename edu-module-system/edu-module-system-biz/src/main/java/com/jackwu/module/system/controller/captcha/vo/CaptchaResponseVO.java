@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 系统模块 - 验证码 - 验证码 response VO
+ *
  * @author jackwu
  */
 @ApiModel("系统模块 - 验证码 - 验证码 response VO")

@@ -37,7 +37,7 @@ public class EduSaTokenAutoConfiguration implements WebMvcConfigurer {
         // token名称 (同时也是cookie名称)
         config.setTokenName("Authorization");
         // token有效期，单位s
-        config.setTimeout(60*60*24*7);
+        config.setTimeout(60 * 60 * 24 * 7);
         // token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
         config.setActivityTimeout(-1);
         // 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)

@@ -1,6 +1,5 @@
 package com.jackwu.frameword.validation.core.annotation;
 
-import com.jackwu.frameword.validation.core.validator.MobileValidator;
 import com.jackwu.frameword.validation.core.validator.UrlValidator;
 
 import javax.validation.Constraint;
@@ -9,7 +8,6 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static com.jackwu.frameword.validation.core.constant.ValidationMessageConstants.MOBILE_NUMBER_VERIFICATION_FAILED;
 import static com.jackwu.frameword.validation.core.constant.ValidationMessageConstants.URL_VERIFICATION_FAILED;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -24,6 +22,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = {UrlValidator.class})
 public @interface URL {
+
     String message() default URL_VERIFICATION_FAILED;
 
     Class<?>[] groups() default {};

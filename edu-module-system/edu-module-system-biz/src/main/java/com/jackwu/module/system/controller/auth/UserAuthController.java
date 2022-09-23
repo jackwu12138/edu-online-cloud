@@ -1,6 +1,5 @@
 package com.jackwu.module.system.controller.auth;
 
-
 import com.jackwu.framework.common.pojo.CommonResult;
 import com.jackwu.module.system.controller.auth.vo.user.UserLoginRequestVO;
 import com.jackwu.module.system.controller.auth.vo.user.UserLoginResponseVO;

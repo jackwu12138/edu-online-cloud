@@ -26,9 +26,8 @@ public class UserApiImpl implements UserApi {
 
     private final UserConvert convertor;
 
-
     @Override
-    public CommonResult<UserInfoResponseDTO> getUserByUsername( @NotNull String username) {
+    public CommonResult<UserInfoResponseDTO> getUserByUsername(@NotNull String username) {
         UserDO user = service.getUserByUsername(username);
         return success(convertor.convert(user));
     }

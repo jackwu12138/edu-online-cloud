@@ -7,7 +7,6 @@ import com.jackwu.frameword.validation.core.annotation.URL;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import static cn.hutool.core.lang.Validator.isUrl;
 import static com.jackwu.frameword.validation.core.constant.PatternConstants.URL_PATTERN;
 
 /**

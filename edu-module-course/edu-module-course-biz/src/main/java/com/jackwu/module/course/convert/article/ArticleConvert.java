@@ -8,9 +8,6 @@ import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRespo
 import com.jackwu.module.course.dal.dateobject.article.ArticleDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
-
-import java.util.List;
 
 /**
  * 文章相关的类型转换器
@@ -19,7 +16,6 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring")
 public interface ArticleConvert {
-
 
     /**
      * 将 ArticleDO 转换为 ArticleUpdateResponseVO

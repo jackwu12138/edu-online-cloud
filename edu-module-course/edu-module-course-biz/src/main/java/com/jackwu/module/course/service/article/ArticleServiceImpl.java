@@ -14,8 +14,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import static com.jackwu.framework.common.util.exception.ServiceExceptionUtil.exception;
 import static com.jackwu.module.course.constants.CourseErrorCodeConstants.COURSE_ERROR_ARTICLE_NOT_FOUND;
 
@@ -70,7 +68,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public PageResult<ArticleListResponseVO> getArticlePageList(PageParam param) {
-        PageResult<ArticleDO> articleDos = baseMapper.selectPage(param,null);
+        PageResult<ArticleDO> articleDos = baseMapper.selectPage(param, null);
         // 查出的所有文章信息转换为 vo
         PageResult<ArticleListResponseVO> vos = mapperConvert.convertPage(articleDos);
         // 根据 typeId 去查询相对应的文章类型名

@@ -1,14 +1,11 @@
 package com.jackwu.module.member.controller.admin.vo;
 
-import com.jackwu.framework.jackson.core.annotation.IpAddress;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 /**
  * @author jackwu
@@ -19,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class AdminListResponseVO extends AdminBaseVO {
+
     /**
      * 管理员编号
      */

@@ -7,8 +7,6 @@ import com.jackwu.module.course.controller.article.vo.article.ArticleListRespons
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
 import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateResponseVO;
 
-import java.util.List;
-
 /**
  * 文章表的 service 接口
  *

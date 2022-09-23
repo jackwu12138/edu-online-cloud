@@ -10,11 +10,12 @@ import com.jackwu.framework.common.exception.ServiceException;
  * @author jackwu
  */
 public class ServiceExceptionUtil {
+
     public static ServiceException exception(ErrorCode errorCode) {
         return exception0(errorCode.getCode(), errorCode.getMsg());
     }
 
-    public static  ServiceException exception( ErrorCode errorCode, Object... params) {
+    public static ServiceException exception(ErrorCode errorCode, Object... params) {
         return exception0(errorCode.getCode(), errorCode.getMsg(), params);
     }
 

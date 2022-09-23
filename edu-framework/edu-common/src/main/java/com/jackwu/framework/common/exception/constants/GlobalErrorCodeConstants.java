@@ -26,7 +26,6 @@ public interface GlobalErrorCodeConstants {
     ErrorCode USER_ERROR_LOCKED = new ErrorCode("A0006", "请求失败，请稍后重试");
     ErrorCode USER_ERROR_TOO_MANY_REQUESTS = new ErrorCode("A0007", "请求过于频繁，请稍后重试");
 
-
     // ---------- 和 NotLoginException 的集成 ---------- //
 
     ErrorCode USER_ERROR_NOT_TOKEN = new ErrorCode("A0008", "未能读取到有效Token");
