@@ -23,6 +23,7 @@ public class XssFilter extends OncePerRequestFilter {
      * 属性
      */
     private final XssProperties properties;
+
     /**
      * 路径匹配器
      */
