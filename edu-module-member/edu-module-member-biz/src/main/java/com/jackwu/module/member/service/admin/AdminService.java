@@ -2,10 +2,10 @@ package com.jackwu.module.member.service.admin;
 
 import com.jackwu.framework.common.pojo.PageParam;
 import com.jackwu.framework.common.pojo.PageResult;
-import com.jackwu.module.member.controller.admin.vo.AdminCreateRequestVO;
-import com.jackwu.module.member.controller.admin.vo.AdminInfoResponseVO;
-import com.jackwu.module.member.controller.admin.vo.AdminListResponseVO;
-import com.jackwu.module.member.controller.admin.vo.AdminUpdateRequestVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminCreateRequestVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminInfoResponseVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminListResponseVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminUpdateRequestVO;
 
 /**
  * 管理员信息表的 service 接口

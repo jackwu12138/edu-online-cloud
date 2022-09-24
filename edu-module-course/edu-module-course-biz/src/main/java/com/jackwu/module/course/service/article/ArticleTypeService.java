@@ -1,9 +1,9 @@
 package com.jackwu.module.course.service.article;
 
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeCreateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeSimpleResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeUpdateRequestVO;
 
 import java.util.List;
 

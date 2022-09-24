@@ -2,8 +2,8 @@ package com.jackwu.module.member.convert.user;
 
 import com.jackwu.framework.common.pojo.PageResult;
 import com.jackwu.module.member.api.user.dto.UserInfoResponseDTO;
-import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
-import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
+import com.jackwu.module.member.controller.admin.user.vo.UserCreateRequestVO;
+import com.jackwu.module.member.controller.admin.user.vo.UserListResponseVO;
 import com.jackwu.module.member.dal.dataobject.user.UserDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

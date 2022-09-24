@@ -16,6 +16,7 @@ spring:
                 server-addr: 127.0.0.1:8848
                 namespace: dev
                 file-extension: yaml
+
 --- # ==================== 跨域配置 ==================== #
 spring:
     cloud:
@@ -37,62 +38,75 @@ spring:
         gateway:
             routes:
                 ### 统一的 swagger 资源访问路径配置
-                -   id: swagger-system-api
+                -   id: system-swagger-api
                     uri: lb://edu-module-system
                     predicates:
-                        - Path=/system/v2/**
+                        - Path=/v2/api-docs/system
                     filters:
-                        - StripPrefix=1
+                        - RewritePath=/v2/api-docs/system, /v2/api-docs
 
-                -   id: swagger-infra-api
+                -   id: infra-swagger-api
                     uri: lb://edu-module-infra
                     predicates:
-                        - Path=/infra/v2/**
+                        - Path=/v2/api-docs/infra
                     filters:
-                        - StripPrefix=1
+                        - RewritePath=/v2/api-docs/infra, /v2/api-docs
 
-                -   id: swagger-course-api
+                -   id: course-swagger-api
                     uri: lb://edu-module-course
                     predicates:
-                        - Path=/course/v2/**
+                        - Path=/v2/api-docs/course
                     filters:
-                        - StripPrefix=1
+                        - RewritePath=/v2/api-docs/course, /v2/api-docs
 
-                -   id: swagger-member-api
+                -   id: member-swagger-api
                     uri: lb://edu-module-member
                     predicates:
-                        - Path=/member/v2/**
+                        - Path=/v2/api-docs/member
                     filters:
-                        - StripPrefix=1
+                        - RewritePath=/v2/api-docs/member, /v2/api-docs
 
-                ### api 访问路径
+                ### admin-api 访问路径
 
-                -   id: system-system-api
+                -   id: system-admin-api
                     uri: lb://edu-module-system
                     predicates:
-                        - Path=/system/**
-                    filters:
-                        - StripPrefix=1
+                        - Path=/admin-api/system/**
 
-                -   id: system-infra-api
+                -   id: infra-admin-api
                     uri: lb://edu-module-infra
                     predicates:
-                        - Path=/infra/**
-                    filters:
-                        - StripPrefix=1
+                        - Path=/admin-api/infra/**
 
-                -   id: system-course-api
+                -   id: course-admin-api
                     uri: lb://edu-module-course
                     predicates:
-                        - Path=/course/**
-                    filters:
-                        - StripPrefix=1
+                        - Path=/admin-api/course/**
 
-                -   id: system-member-api
+                -   id: member-admin-api
                     uri: lb://edu-module-member
                     predicates:
-                        - Path=/member/**
-                    filters:
-                        - StripPrefix=1
+                        - Path=/admin-api/member/**
 
+                ### app-api 访问路径
+
+                -   id: system-app-api
+                    uri: lb://edu-module-system
+                    predicates:
+                        - Path=/app-api/system/**
+
+                -   id: infra-app-api
+                    uri: lb://edu-module-infra
+                    predicates:
+                        - Path=/app-api/infra/**
+
+                -   id: course-app-api
+                    uri: lb://edu-module-course
+                    predicates:
+                        - Path=/app-api/course/**
+
+                -   id: member-app-api
+                    uri: lb://edu-module-member
+                    predicates:
+                        - Path=/app-api/member/**
 

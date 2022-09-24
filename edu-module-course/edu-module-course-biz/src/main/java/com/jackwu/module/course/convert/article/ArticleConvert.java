@@ -1,10 +1,10 @@
 package com.jackwu.module.course.convert.article;
 
 import com.jackwu.framework.common.pojo.PageResult;
-import com.jackwu.module.course.controller.article.vo.article.ArticleCreateRequestVO;
-import com.jackwu.module.course.controller.article.vo.article.ArticleListResponseVO;
-import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateRequestVO;
-import com.jackwu.module.course.controller.article.vo.article.ArticleUpdateResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.article.ArticleCreateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.article.ArticleListResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.article.ArticleUpdateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.article.ArticleUpdateResponseVO;
 import com.jackwu.module.course.dal.dateobject.article.ArticleDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

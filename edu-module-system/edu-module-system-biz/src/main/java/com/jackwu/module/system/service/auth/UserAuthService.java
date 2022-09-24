@@ -1,7 +1,7 @@
 package com.jackwu.module.system.service.auth;
 
-import com.jackwu.module.system.controller.auth.vo.user.UserLoginRequestVO;
-import com.jackwu.module.system.controller.auth.vo.user.UserLoginResponseVO;
+import com.jackwu.module.system.controller.app.auth.vo.user.UserLoginRequestVO;
+import com.jackwu.module.system.controller.app.auth.vo.user.UserLoginResponseVO;
 
 /**
  * 用户安全的 service 接口类

@@ -2,8 +2,8 @@ package com.jackwu.module.member.service.user;
 
 import com.jackwu.framework.common.pojo.PageParam;
 import com.jackwu.framework.common.pojo.PageResult;
-import com.jackwu.module.member.controller.user.vo.UserCreateRequestVO;
-import com.jackwu.module.member.controller.user.vo.UserListResponseVO;
+import com.jackwu.module.member.controller.admin.user.vo.UserCreateRequestVO;
+import com.jackwu.module.member.controller.admin.user.vo.UserListResponseVO;
 import com.jackwu.module.member.dal.dataobject.user.UserDO;
 
 /**

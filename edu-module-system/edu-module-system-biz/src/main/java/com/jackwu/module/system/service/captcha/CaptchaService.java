@@ -1,6 +1,6 @@
 package com.jackwu.module.system.service.captcha;
 
-import com.jackwu.module.system.controller.captcha.vo.CaptchaResponseVO;
+import com.jackwu.module.system.controller.app.captcha.vo.CaptchaResponseVO;
 
 /**
  * 验证码的 service 接口类

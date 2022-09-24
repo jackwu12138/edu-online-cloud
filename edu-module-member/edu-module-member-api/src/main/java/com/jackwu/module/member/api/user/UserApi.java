@@ -14,11 +14,11 @@ import static com.jackwu.module.member.constants.MemberApiConstants.MEMBER_APPLI
 import static com.jackwu.module.member.constants.MemberApiConstants.MEMBER_PREFIX;
 
 /**
- * 用户模块 - RPC - 用户
+ * 用户模块 - rpc-api - 用户
  *
  * @author jackwu
  */
-@Api(tags = "用户模块 - RPC - 用户")
+@Api(tags = "用户模块 - rpc-api - 用户")
 @FeignClient(name = MEMBER_APPLICATION_NAME)
 public interface UserApi {
 

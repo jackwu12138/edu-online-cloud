@@ -1,10 +1,10 @@
 package com.jackwu.module.member.convert.admin;
 
 import com.jackwu.framework.common.pojo.PageResult;
-import com.jackwu.module.member.controller.admin.vo.AdminCreateRequestVO;
-import com.jackwu.module.member.controller.admin.vo.AdminInfoResponseVO;
-import com.jackwu.module.member.controller.admin.vo.AdminListResponseVO;
-import com.jackwu.module.member.controller.admin.vo.AdminUpdateRequestVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminCreateRequestVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminInfoResponseVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminListResponseVO;
+import com.jackwu.module.member.controller.admin.admin.vo.AdminUpdateRequestVO;
 import com.jackwu.module.member.dal.dataobject.admin.AdminDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

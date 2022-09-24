@@ -1,10 +1,10 @@
 package com.jackwu.module.course.service.article;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeCreateRequestVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeResponseVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeSimpleResponseVO;
-import com.jackwu.module.course.controller.article.vo.articletype.ArticleTypeUpdateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeCreateRequestVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeSimpleResponseVO;
+import com.jackwu.module.course.controller.admin.article.vo.articletype.ArticleTypeUpdateRequestVO;
 import com.jackwu.module.course.convert.article.ArticleTypeConvert;
 import com.jackwu.module.course.dal.dateobject.article.ArticleTypeDO;
 import com.jackwu.module.course.dal.mybatis.article.ArticleTypeMapper;

@@ -3,6 +3,7 @@ package com.jackwu.gateway.controller.swagger;
 import com.jackwu.gateway.config.swagger.EduGatewaySwaggerAutoConfiguration;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.Optional;
  *
  * @author jackwu
  */
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "edu.swagger", value = "enable", matchIfMissing = true)

@@ -6,7 +6,7 @@ import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.jackwu.module.system.config.CaptchaProperties;
-import com.jackwu.module.system.controller.captcha.vo.CaptchaResponseVO;
+import com.jackwu.module.system.controller.app.captcha.vo.CaptchaResponseVO;
 import com.jackwu.module.system.dal.redis.captcha.CaptchaRedisDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
